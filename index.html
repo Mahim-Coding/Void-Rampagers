@@ -44,6 +44,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .brand {
@@ -51,14 +53,21 @@
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--gold);
+            text-decoration: none;
             text-shadow: 0 0 15px var(--gold-glow);
             letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .nav-menu a {
             color: var(--text-main);
             text-decoration: none;
-            margin-left: 24px;
             font-size: 0.95rem;
             font-weight: 500;
             transition: 0.3s;
@@ -66,6 +75,21 @@
 
         .nav-menu a:hover {
             color: var(--gold);
+        }
+
+        .arsenal-nav-btn {
+            background: linear-gradient(90deg, rgba(234, 179, 8, 0.15), rgba(147, 51, 234, 0.25));
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            box-shadow: 0 0 12px rgba(234, 179, 8, 0.2);
+        }
+
+        .arsenal-nav-btn:hover {
+            background: var(--gold);
+            color: #000 !important;
         }
 
         /* Hero Banner */
@@ -92,13 +116,31 @@
             color: var(--text-muted);
             font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(90deg, #eab308, #f59e0b);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            padding: 13px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 0 20px var(--gold-glow);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.7);
         }
 
         /* Search & Filter Bar */
         .controls {
             max-width: 1100px;
-            margin: 0 auto 40px;
+            margin: 20px auto 40px;
             padding: 0 20px;
             display: flex;
             flex-wrap: wrap;
@@ -124,6 +166,12 @@
             box-shadow: 0 0 12px var(--gold-glow);
         }
 
+        .filter-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         .filter-btns button {
             background: var(--card-bg);
             color: var(--text-muted);
@@ -133,7 +181,6 @@
             cursor: pointer;
             font-weight: 600;
             transition: 0.3s;
-            margin-left: 6px;
         }
 
         .filter-btns button.active, .filter-btns button:hover {
@@ -157,14 +204,14 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             padding: 25px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .guide-card:hover {
-            transform: translateY(-6px);
             border-color: var(--gold);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
@@ -369,18 +416,20 @@
 <body>
 
     <header>
-        <div class="brand">⚔️ VOID-RAMPAGERS</div>
+        <a href="index.html" class="brand">⚔️ VOID-RAMPAGERS</a>
         <nav class="nav-menu">
             <a href="#">Home</a>
+            <a href="arsenal.html" class="arsenal-nav-btn">⚔️ Arsenal & Wiki</a>
             <a href="#guides">Guides</a>
-            <a href="#community" style="color: #f5b014; font-weight: 600;">Community</a>
-            <a href="contact.html">Contact</a>
+            <a href="#community">Community</a>
+            <a href="contact.html" style="color: #f5b014; font-weight: 600;">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Ultimate <span>Magic Rampage</span> Archive</h1>
         <p>Discover best character builds, secret dungeon locations, elemental gear combinations, and competitive duel strategies.</p>
+        <a href="arsenal.html" class="hero-cta">Explore All Suits, Weapons & Potions →</a>
     </section>
 
     <!-- Search and Filter -->
@@ -448,7 +497,7 @@
             </a>
 
             <!-- YouTube Card -->
-            <a href="https://www.youtube.com/channel/UCqZWHzD9XOpc-NtImfaFb6g" target="_blank" class="social-card" data-tilt>
+            <a href="https://www.youtube.com/channel/UCsGb1ROac_-HlKWNVSyxbyg" target="_blank" class="social-card" data-tilt>
                 <div class="social-icon">▶️</div>
                 <h3>YouTube Channel</h3>
                 <p>Watch gameplay walkthroughs, epic weapon showcases, and secret dungeon guides.</p>
