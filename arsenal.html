@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal & Wiki | Void-Rampagers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
+    <style>
+        :root {
+            --bg-dark: #0b0c10;
+            --card-bg: #14161f;
+            --gold: #eab308;
+            --gold-glow: rgba(234, 179, 8, 0.35);
+            --purple: #9333ea;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at top, #1e1433 0%, #0b0c10 70%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(11, 12, 16, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(234, 179, 8, 0.25);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-decoration: none;
+            text-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .nav-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active-link {
+            color: var(--gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 55px 20px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.6rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 18px rgba(147, 51, 234, 0.5);
+        }
+
+        .page-header h1 span {
+            color: var(--gold);
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Search & Filter */
+        .controls {
+            max-width: 1150px;
+            margin: 25px auto 35px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 260px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            background: var(--card-bg);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .filter-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-btns button {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .filter-btns button.active, .filter-btns button:hover {
+            background: var(--gold);
+            color: #000;
+            border-color: var(--gold);
+        }
+
+        /* Items Grid */
+        .items-grid {
+            max-width: 1150px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+
+        .item-emoji {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+        }
+
+        .item-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-suit { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+        .badge-weapon { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        .badge-potion { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+        .badge-skill { background: rgba(234, 179, 8, 0.2); color: #fde047; }
+
+        .item-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .item-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .stats-tag {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand">⚔️ VOID-RAMPAGERS</a>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="arsenal.html" class="active-link">Arsenal & Wiki</a>
+            <a href="index.html#community">Community</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Magic Rampage <span>Arsenal</span></h1>
+        <p>Complete collection of Suits, Weapons, Potions, and Skill Tree upgrades.</p>
+    </section>
+
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search suits, weapons, potions, or skills...">
+        <div class="filter-btns">
+            <button class="active" onclick="filterItems('all', this)">All</button>
+            <button onclick="filterItems('Suit', this)">Suits</button>
+            <button onclick="filterItems('Weapon', this)">Weapons</button>
+            <button onclick="filterItems('Potion', this)">Potions</button>
+            <button onclick="filterItems('Skill', this)">Skills</button>
+        </div>
+    </div>
+
+    <div class="items-grid" id="itemsGrid">
+        <!-- SUITS -->
+        <div class="item-card" data-category="Suit">
+            <div class="item-emoji">🧙‍♂️</div>
+            <span class="item-badge badge-suit">Suit</span>
+            <h3>Swamp Witch Suit</h3>
+            <p>Best dark magic armor with massive staff & dagger boost.</p>
+            <div class="stats-tag">Element: Darkness • Speed: +10%</div>
+        </div>
+
+        <div class="item-card" data-category="Suit">
+            <div class="item-emoji">👑</div>
+            <span class="item-badge badge-suit">Suit</span>
+            <h3>King's Tunic</h3>
+            <p>Royal heavy armor offering high defense and light element synergy.</p>
+            <div class="stats-tag">Element: Light • Armor: High</div>
+        </div>
+
+        <div class="item-card" data-category="Suit">
+            <div class="item-emoji">🛡️</div>
+            <span class="item-badge badge-suit">Suit</span>
+            <h3>Cataclysmic Plate</h3>
+            <p>Forged in volcanic fire, granting extreme resistance against fire traps.</p>
+            <div class="stats-tag">Element: Fire • Sword Boost: +35%</div>
+        </div>
+
+        <div class="item-card" data-category="Suit">
+            <div class="item-emoji">🧥</div>
+            <span class="item-badge badge-suit">Suit</span>
+            <h3>Wind Witch Suit</h3>
+            <p>Lightweight enchanted robe boosting jump impulse and air speed.</p>
+            <div class="stats-tag">Element: Air • Jump: +18%</div>
+        </div>
+
+        <!-- WEAPONS -->
+        <div class="item-card" data-category="Weapon">
+            <div class="item-emoji">🪄</div>
+            <span class="item-badge badge-weapon">Weapon</span>
+            <h3>Golden Dragon Staff</h3>
+            <p>Fires piercing golden beams that pass through shields and enemies.</p>
+            <div class="stats-tag">Type: Staff • Element: Light</div>
+        </div>
+
+        <div class="item-card" data-category="Weapon">
+            <div class="item-emoji">🗡️</div>
+            <span class="item-badge badge-weapon">Weapon</span>
+            <h3>Cthulhu Dagger</h3>
+            <p>Rapid-fire dark daggers capable of melting bosses in seconds.</p>
+            <div class="stats-tag">Type: Dagger • Element: Darkness</div>
+        </div>
+
+        <div class="item-card" data-category="Weapon">
+            <div class="item-emoji">🔱</div>
+            <span class="item-badge badge-weapon">Weapon</span>
+            <h3>Trident of the Abyss</h3>
+            <p>Water-imbued piercing spear with wide area splash damage.</p>
+            <div class="stats-tag">Type: Spear • Element: Water</div>
+        </div>
+
+        <div class="item-card" data-category="Weapon">
+            <div class="item-emoji">🪓</div>
+            <span class="item-badge badge-weapon">Weapon</span>
+            <h3>Dead Vulture Staff</h3>
+            <p>Unleashes cursed dark skulls that home in on nearby dungeon enemies.</p>
+            <div class="stats-tag">Type: Staff • Element: Darkness</div>
+        </div>
+
+        <!-- POTIONS / BEVERAGES -->
+        <div class="item-card" data-category="Potion">
+            <div class="item-emoji">🧪</div>
+            <span class="item-badge badge-potion">Potion</span>
+            <h3>Arcane Precision Tonic</h3>
+            <p>Enhances armor rating and sharpens critical strike accuracy.</p>
+            <div class="stats-tag">Effect: Armor Boost</div>
+        </div>
+
+        <div class="item-card" data-category="Potion">
+            <div class="item-emoji">🍾</div>
+            <span class="item-badge badge-potion">Potion</span>
+            <h3>Elixir of Duplication</h3>
+            <p>Powerful brew granting Armor, Damage, and Speed simultaneously.</p>
+            <div class="stats-tag">Effect: Armor • Damage • Speed</div>
+        </div>
+
+        <div class="item-card" data-category="Potion">
+            <div class="item-emoji">🧪</div>
+            <span class="item-badge badge-potion">Potion</span>
+            <h3>Monsters' Juice</h3>
+            <p>Boosts raw physical and magical output alongside movement speed.</p>
+            <div class="stats-tag">Effect: Damage • Armor • Speed</div>
+        </div>
+
+        <div class="item-card" data-category="Potion">
+            <div class="item-emoji">🌶️</div>
+            <span class="item-badge badge-potion">Potion</span>
+            <h3>Pepper Brew</h3>
+            <p>Fiery tonic that reinforces defensive armor against heavy hits.</p>
+            <div class="stats-tag">Effect: Armor Boost</div>
+        </div>
+
+        <div class="item-card" data-category="Potion">
+            <div class="item-emoji">✨</div>
+            <span class="item-badge badge-potion">Potion</span>
+            <h3>Starlight Supertonic</h3>
+            <p>Celestial elixir providing maximum combat stamina and power.</p>
+            <div class="stats-tag">Effect: All-Round Boost</div>
+        </div>
+
+        <!-- SKILL TREE -->
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">⚔️</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Sword Damage +15%</h3>
+            <p>Increases base and elemental slash damage for all Swords.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🗡️</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Dagger Damage +20%</h3>
+            <p>Amplifies throw speed and impact damage for all Daggers.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🪄</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Staff Damage +20%</h3>
+            <p>Boosts arcane projectile velocity and blast damage for Staves.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🔱</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Spear Damage +40%</h3>
+            <p>Massive piercing damage bonus for all Spears and Polearms.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🔨</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Hammer Damage +60%</h3>
+            <p>Devastating ground-pound shockwave damage for Heavy Hammers.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🪓</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Axe Damage +48%</h3>
+            <p>Increases heavy cleave damage for all Battle Axes.</p>
+            <div class="stats-tag">Category: Weapons</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">🛡️</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Armor +16%</h3>
+            <p>Permanently increases total defensive armor across all suits.</p>
+            <div class="stats-tag">Category: Attributes</div>
+        </div>
+
+        <div class="item-card" data-category="Skill">
+            <div class="item-emoji">⚡</div>
+            <span class="item-badge badge-skill">Skill Tree</span>
+            <h3>Speed +4%</h3>
+            <p>Enhances character running and dodging agility in dungeons.</p>
+            <div class="stats-tag">Category: Attributes</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Void-Rampagers • Fan-made Magic Rampage Portal</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.item-card');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+
+        function filterItems(category, btn) {
+            document.querySelectorAll('.filter-btns button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
