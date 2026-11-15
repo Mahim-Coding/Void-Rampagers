@@ -31,6 +31,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -45,6 +46,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .brand {
@@ -78,9 +81,9 @@
         /* Contact Section */
         .contact-container {
             max-width: 600px;
-            width: 100%;
-            margin: 50px auto;
-            padding: 30px 20px;
+            width: calc(100% - 30px);
+            margin: 40px auto;
+            padding: 25px 20px;
             background: var(--card-bg);
             border: 1px solid rgba(234, 179, 8, 0.3);
             border-radius: 14px;
@@ -89,7 +92,7 @@
 
         .contact-container h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--gold);
             margin-bottom: 10px;
             text-align: center;
@@ -104,7 +107,7 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
@@ -177,11 +180,10 @@
             color: #fff;
         }
 
-        /* Success Message Popup / Notification */
         #resultMsg {
             margin-top: 15px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 600;
         }
 
@@ -195,7 +197,8 @@
 
         @media (min-width: 768px) {
             header { padding: 18px 8%; }
-            .contact-container { padding: 40px; }
+            .contact-container { padding: 40px; margin: 50px auto; }
+            .contact-container h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -215,10 +218,8 @@
         <h1>Contact Support</h1>
         <p>Have questions about builds or want to report an issue? Send us a message!</p>
         
-        <!-- Web3Forms Contact Form -->
         <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-            <!-- আপনার Web3Forms Access Key নিচে বসাবেন -->
-            <input type="hidden" name="apikey" value="52758410-4656-4edc-9018-441c14438528">
+            <input type="hidden" name="access_key" value="52758410-4656-4edc-9018-441c14438528">
 
             <div class="form-group">
                 <label>Your Name</label>
@@ -228,6 +229,11 @@
             <div class="form-group">
                 <label>Your Email</label>
                 <input type="email" name="email" class="form-control" placeholder="Enter your email..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" name="subject" class="form-control" placeholder="What is this about? (e.g., Build Suggestion, Bug Report)" required>
             </div>
 
             <div class="form-group">
@@ -248,7 +254,6 @@
         <p>© 2026 Void-Rampagers • Fan-made Magic Rampage Portal</p>
     </footer>
 
-    <!-- Web3Forms Ajax Script -->
     <script>
         const form = document.getElementById('contactForm');
         const resultMsg = document.getElementById('resultMsg');
