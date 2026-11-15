@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             border: 1px solid var(--gold, #eab308);
             border-radius: 10px;
             padding: 15px;
-            width: 230px;
+            width: 240px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             z-index: 999;
             text-align: left;
@@ -70,13 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.head.appendChild(style);
 
-    // মেনুবারে বাটন যুক্ত করা
+    // মেনুবারে সেটিংস বাটন ও ড্রপডাউন যুক্ত করা
     const navMenu = document.querySelector('.nav-menu');
     if (navMenu) {
         const wrapper = document.createElement('div');
         wrapper.className = 'settings-wrapper';
         wrapper.innerHTML = `
-            <button class="settings-btn" id="gearBtn">⚙️ Menu</button>
+            <button class="settings-btn" id="gearBtn">⚙️ Settings</button>
             <div class="settings-dropdown" id="settingsMenu">
                 <div class="setting-item">
                     <label>Theme (থিম)</label>
@@ -87,6 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <select id="langSelect">
                         <option value="en">English</option>
                         <option value="bn">বাংলা (Bengali)</option>
+                        <option value="es">Español (Spanish)</option>
+                        <option value="fr">Français (French)</option>
+                        <option value="de">Deutsch (German)</option>
+                        <option value="ar">العربية (Arabic)</option>
                     </select>
                 </div>
                 <div class="setting-item">
@@ -102,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         navMenu.appendChild(wrapper);
 
-        // ড্রপডাউন খোলা ও বন্ধ করা
+        // ড্রপডাউন টগল ইভেন্ট
         document.getElementById('gearBtn').addEventListener('click', (e) => {
             e.stopPropagation();
             document.getElementById('settingsMenu').classList.toggle('show');
@@ -112,14 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         document.getElementById('settingsMenu').addEventListener('click', (e) => e.stopPropagation());
 
-        // থিম টগল
+        // থিম বাটন ইভেন্ট
         document.getElementById('themeBtn').addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             const isLight = document.body.classList.contains('light-mode');
             localStorage.setItem('vr_theme', isLight ? 'light' : 'dark');
         });
 
-        // ভাষা পরিবর্তন
+        // ভাষা পরিবর্তন ইভেন্ট
         const langSelect = document.getElementById('langSelect');
         langSelect.value = localStorage.getItem('vr_lang') || 'en';
         langSelect.addEventListener('change', (e) => {
@@ -128,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // আগে সেভ করা সেটিংস লোড করা
+    // আগের সেভ করা থিম, কালার ও ল্যাঙ্গুয়েজ লোড করা
     if (localStorage.getItem('vr_theme') === 'light') {
         document.body.classList.add('light-mode');
     }
@@ -140,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedLang) applyLanguage(savedLang);
 });
 
-// কালার স্টাইল পরিবর্তনের ফাংশন
+// কালার এবং গ্লো ইফেক্ট পরিবর্তন ফাংশন
 function setAccent(color, glow) {
     document.documentElement.style.setProperty('--gold', color);
     document.documentElement.style.setProperty('--gold-glow', glow);
@@ -148,15 +152,40 @@ function setAccent(color, glow) {
     localStorage.setItem('vr_glow', glow);
 }
 
-// সহজ বাংলা/ইংরেজি অনুবাদ ফাংশন
+// মাল্টি-ল্যাঙ্গুয়েজ সাপোর্ট ফাংশন
 function applyLanguage(lang) {
     const heroTitle = document.querySelector('.hero h1');
     const heroDesc = document.querySelector('.hero p');
-    if (lang === 'bn') {
-        if (heroTitle) heroTitle.innerHTML = 'আল্টিমেট <span>ম্যাজিক র‍্যাম্পেজ</span> আর্কাইভ';
-        if (heroDesc) heroDesc.innerText = 'সেরা ক্যারেক্টার বিল্ড, গোপন ডানজন লোকেশন, এলিমেন্টাল গিয়ার কম্বিনেশন এবং ডুয়েল স্ট্র্যাটেজি খুঁজে নিন।';
-    } else {
-        if (heroTitle) heroTitle.innerHTML = 'Ultimate <span>Magic Rampage</span> Archive';
-        if (heroDesc) heroDesc.innerText = 'Discover best character builds, secret dungeon locations, elemental gear combinations, and competitive duel strategies.';
+    
+    const translations = {
+        en: {
+            title: "Ultimate <span>Magic Rampage</span> Archive",
+            desc: "Discover best character builds, secret dungeon locations, elemental gear combinations, and competitive duel strategies."
+        },
+        bn: {
+            title: "আল্টিমেট <span>ম্যাজিক র‍্যাম্পেজ</span> আর্কাইভ",
+            desc: "সেরা ক্যারেক্টার বিল্ড, গোপন ডানজন লোকেশন, এলিমেন্টাল গিয়ার কম্বিনেশন এবং ডুয়েল স্ট্র্যাটেজি খুঁজে নিন।"
+        },
+        es: {
+            title: "Archivo Definitivo de <span>Magic Rampage</span>",
+            desc: "Descubre las mejores builds de personajes, ubicaciones de mazmorras secretas y combinaciones de equipos."
+        },
+        fr: {
+            title: "Archive Ultime de <span>Magic Rampage</span>",
+            desc: "Découvrez les meilleures configurations de personnages, donjons secrets et combinaisons d'équipements."
+        },
+        de: {
+            title: "Ultimatives <span>Magic Rampage</span> Archiv",
+            desc: "Entdecke die besten Charakter-Builds, geheime Dungeons und Ausrüstungskombinationen."
+        },
+        ar: {
+            title: "أرشيف <span>ماجيك رامبيج</span> الشامل",
+            desc: "اكتشف أفضل تصميمات الشخصيات، وأماكن الزنزانات السرية، ومجموعات المعدات."
+        }
+    };
+
+    if (translations[lang]) {
+        if (heroTitle) heroTitle.innerHTML = translations[lang].title;
+        if (heroDesc) heroDesc.innerText = translations[lang].desc;
     }
 }
