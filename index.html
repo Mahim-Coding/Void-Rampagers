@@ -32,6 +32,74 @@
             overflow-x: hidden;
         }
 
+        /* --- INTRO / SPLASH SCREEN STYLES --- */
+        #introScreen {
+            position: fixed;
+            inset: 0;
+            background: #000000;
+            background-image: radial-gradient(circle, #240a3a 0%, #000000 80%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #introScreen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .fire-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px #ff4500, 0 0 40px #ff8c00, 0 0 60px #eab308;
+            animation: firePulse 2s infinite alternate;
+        }
+
+        .fire-logo span {
+            color: var(--gold);
+        }
+
+        @keyframes firePulse {
+            0% { text-shadow: 0 0 15px #ff4500, 0 0 30px #ff8c00; transform: scale(1); }
+            100% { text-shadow: 0 0 30px #ff4500, 0 0 60px #eab308, 0 0 90px #ff0000; transform: scale(1.03); }
+        }
+
+        .intro-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .enter-btn {
+            background: linear-gradient(90deg, #ff4500, #eab308);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.9);
+        }
+
         /* Header & Navbar */
         header {
             background: rgba(11, 12, 16, 0.95);
@@ -180,7 +248,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85srem;
+            font-size: 0.85rem;
             transition: 0.3s;
             text-align: center;
         }
@@ -301,7 +369,6 @@
             font-size: 0.85rem;
         }
 
-        /* Desktop স্ক্রিনের জন্য বড় লেআউট (Media Queries) */
         @media (min-width: 768px) {
             header { padding: 18px 8%; }
             .brand { font-size: 1.6rem; }
@@ -316,6 +383,13 @@
     </style>
 </head>
 <body>
+
+    <!-- --- INTRO / SPLASH SCREEN HTML --- -->
+    <div id="introScreen">
+        <div class="fire-logo">VOID <span>RAMPAGERS</span></div>
+        <p class="intro-subtitle">Magic Rampage Ultimate Fan Hub</p>
+        <button class="enter-btn" onclick="enterSite()">🔥 ENTER REALM 🔥</button>
+    </div>
 
     <header>
         <a href="index.html" class="brand">⚔️ VOID-RAMPAGERS</a>
@@ -397,6 +471,15 @@
     </footer>
 
     <script>
+        // --- INTRO SCRIPT ---
+        function enterSite() {
+            const intro = document.getElementById('introScreen');
+            intro.classList.add('fade-out');
+            setTimeout(() => {
+                intro.style.display = 'none';
+            }, 800);
+        }
+
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.guide-card');
 
