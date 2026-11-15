@@ -32,12 +32,11 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO / SPLASH SCREEN STYLES --- */
+        /* --- INTRO / SPLASH SCREEN WITH GAME BG --- */
         #introScreen {
             position: fixed;
             inset: 0;
-            background: #000000;
-            background-image: radial-gradient(circle, #240a3a 0%, #000000 80%);
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -55,13 +54,13 @@
 
         .fire-logo {
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px #ff4500, 0 0 40px #ff8c00, 0 0 60px #eab308;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px #ff4500, 0 0 40px #ff8c00, 0 0 60px var(--gold);
             animation: firePulse 2s infinite alternate;
         }
 
@@ -71,13 +70,13 @@
 
         @keyframes firePulse {
             0% { text-shadow: 0 0 15px #ff4500, 0 0 30px #ff8c00; transform: scale(1); }
-            100% { text-shadow: 0 0 30px #ff4500, 0 0 60px #eab308, 0 0 90px #ff0000; transform: scale(1.03); }
+            100% { text-shadow: 0 0 30px #ff4500, 0 0 60px var(--gold), 0 0 90px #ff0000; transform: scale(1.03); }
         }
 
         .intro-subtitle {
             color: var(--text-muted);
             font-size: 1rem;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             letter-spacing: 1px;
         }
 
@@ -384,7 +383,7 @@
 </head>
 <body>
 
-    <!-- --- INTRO / SPLASH SCREEN HTML --- -->
+    <!-- --- INTRO / SPLASH SCREEN --- -->
     <div id="introScreen">
         <div class="fire-logo">VOID <span>RAMPAGERS</span></div>
         <p class="intro-subtitle">Magic Rampage Ultimate Fan Hub</p>
