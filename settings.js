@@ -1,4 +1,3 @@
-// ১. মেনুবারের HTML ও CSS তৈরি করে পেজে বসিয়ে দেওয়া
 document.addEventListener("DOMContentLoaded", () => {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -7,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--gold, #eab308);
             color: var(--gold, #eab308);
-            padding: 7px 13px;
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -19,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
             display: none;
             position: absolute;
             right: 0;
-            top: 42px;
+            top: 40px;
             background: #161826;
             border: 1px solid var(--gold, #eab308);
             border-radius: 10px;
             padding: 15px;
-            width: 240px;
+            width: 230px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             z-index: 999;
             text-align: left;
@@ -66,11 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
             background-color: #f1f5f9 !important;
         }
         body.light-mode header { background: rgba(255, 255, 255, 0.92) !important; }
-        body.light-mode .hero h1, body.light-mode h3, body.light-mode h4 { color: #0f172a !important; }
+        body.light-mode .hero h1, body.light-mode .page-header h1, body.light-mode h3, body.light-mode h4 { color: #0f172a !important; }
     `;
     document.head.appendChild(style);
 
-    // মেনুবারে সেটিংস বাটন ও ড্রপডাউন যুক্ত করা
     const navMenu = document.querySelector('.nav-menu');
     if (navMenu) {
         const wrapper = document.createElement('div');
@@ -106,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         navMenu.appendChild(wrapper);
 
-        // ড্রপডাউন টগল ইভেন্ট
         document.getElementById('gearBtn').addEventListener('click', (e) => {
             e.stopPropagation();
             document.getElementById('settingsMenu').classList.toggle('show');
@@ -116,14 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         document.getElementById('settingsMenu').addEventListener('click', (e) => e.stopPropagation());
 
-        // থিম বাটন ইভেন্ট
         document.getElementById('themeBtn').addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             const isLight = document.body.classList.contains('light-mode');
             localStorage.setItem('vr_theme', isLight ? 'light' : 'dark');
         });
 
-        // ভাষা পরিবর্তন ইভেন্ট
         const langSelect = document.getElementById('langSelect');
         langSelect.value = localStorage.getItem('vr_lang') || 'en';
         langSelect.addEventListener('change', (e) => {
@@ -132,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // আগের সেভ করা থিম, কালার ও ল্যাঙ্গুয়েজ লোড করা
     if (localStorage.getItem('vr_theme') === 'light') {
         document.body.classList.add('light-mode');
     }
@@ -144,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedLang) applyLanguage(savedLang);
 });
 
-// কালার এবং গ্লো ইফেক্ট পরিবর্তন ফাংশন
 function setAccent(color, glow) {
     document.documentElement.style.setProperty('--gold', color);
     document.documentElement.style.setProperty('--gold-glow', glow);
@@ -152,40 +145,55 @@ function setAccent(color, glow) {
     localStorage.setItem('vr_glow', glow);
 }
 
-// মাল্টি-ল্যাঙ্গুয়েজ সাপোর্ট ফাংশন
 function applyLanguage(lang) {
     const heroTitle = document.querySelector('.hero h1');
     const heroDesc = document.querySelector('.hero p');
-    
+    const pageTitle = document.querySelector('.page-header h1');
+    const pageDesc = document.querySelector('.page-header p');
+
     const translations = {
         en: {
-            title: "Ultimate <span>Magic Rampage</span> Archive",
-            desc: "Discover best character builds, secret dungeon locations, elemental gear combinations, and competitive duel strategies."
+            homeTitle: "Ultimate <span>Magic Rampage</span> Archive",
+            homeDesc: "Discover best character builds, secret dungeon locations, elemental gear combinations, and competitive duel strategies.",
+            arsenalTitle: "Magic Rampage <span>Arsenal</span>",
+            arsenalDesc: "Complete collection of Suits, Weapons, Potions, and Skill Tree upgrades."
         },
         bn: {
-            title: "আল্টিমেট <span>ম্যাজিক র‍্যাম্পেজ</span> আর্কাইভ",
-            desc: "সেরা ক্যারেক্টার বিল্ড, গোপন ডানজন লোকেশন, এলিমেন্টাল গিয়ার কম্বিনেশন এবং ডুয়েল স্ট্র্যাটেজি খুঁজে নিন।"
+            homeTitle: "আল্টিমেট <span>ম্যাজিক র‍্যাম্পেজ</span> আর্কাইভ",
+            homeDesc: "সেরা ক্যারেক্টার বিল্ড, গোপন ডানজন লোকেশন, এলিমেন্টাল গিয়ার কম্বিনেশন এবং ডুয়েল স্ট্র্যাটেজি খুঁজে নিন।",
+            arsenalTitle: "ম্যাজিক র‍্যাম্পেজ <span>আর্সেনাল</span>",
+            arsenalDesc: "স্যুট, অস্ত্র, পোশন এবং স্কিল ট্রি আপগ্রেডের সম্পূর্ণ সংগ্রহ।"
         },
         es: {
-            title: "Archivo Definitivo de <span>Magic Rampage</span>",
-            desc: "Descubre las mejores builds de personajes, ubicaciones de mazmorras secretas y combinaciones de equipos."
+            homeTitle: "Archivo Definitivo de <span>Magic Rampage</span>",
+            homeDesc: "Descubre las mejores builds de personajes, ubicaciones de mazmorras secretas y combinaciones de equipos.",
+            arsenalTitle: "Arsenal de <span>Magic Rampage</span>",
+            arsenalDesc: "Colección completa de trajes, armas, pociones y mejoras del árbol de habilidades."
         },
         fr: {
-            title: "Archive Ultime de <span>Magic Rampage</span>",
-            desc: "Découvrez les meilleures configurations de personnages, donjons secrets et combinaisons d'équipements."
+            homeTitle: "Archive Ultime de <span>Magic Rampage</span>",
+            homeDesc: "Découvrez les meilleures configurations de personnages, donjons secrets et combinaisons d'équipements.",
+            arsenalTitle: "Arsenal de <span>Magic Rampage</span>",
+            arsenalDesc: "Collection complète de tenues, armes, potions et améliorations."
         },
         de: {
-            title: "Ultimatives <span>Magic Rampage</span> Archiv",
-            desc: "Entdecke die besten Charakter-Builds, geheime Dungeons und Ausrüstungskombinationen."
+            homeTitle: "Ultimatives <span>Magic Rampage</span> Archiv",
+            homeDesc: "Entdecke die besten Charakter-Builds, geheime Dungeons und Ausrüstungskombinationen.",
+            arsenalTitle: "<span>Magic Rampage</span> Arsenal",
+            arsenalDesc: "Vollständige Sammlung von Anzügen, Waffen, Tränken und Fähigkeiten."
         },
         ar: {
-            title: "أرشيف <span>ماجيك رامبيج</span> الشامل",
-            desc: "اكتشف أفضل تصميمات الشخصيات، وأماكن الزنزانات السرية، ومجموعات المعدات."
+            homeTitle: "أرشيف <span>ماجيك رامبيج</span> الشامل",
+            homeDesc: "اكتشف أفضل تصميمات الشخصيات، وأماكن الزنزانات السرية، ومجموعات المعدات.",
+            arsenalTitle: "ترسانة <span>ماجيك رامبيج</span>",
+            arsenalDesc: "المجموعة الكاملة من البدلات والأسلحة والجرع وترقيات مهارات الشجرة."
         }
     };
 
     if (translations[lang]) {
-        if (heroTitle) heroTitle.innerHTML = translations[lang].title;
-        if (heroDesc) heroDesc.innerText = translations[lang].desc;
+        if (heroTitle) heroTitle.innerHTML = translations[lang].homeTitle;
+        if (heroDesc) heroDesc.innerText = translations[lang].homeDesc;
+        if (pageTitle) pageTitle.innerHTML = translations[lang].arsenalTitle;
+        if (pageDesc) pageDesc.innerText = translations[lang].arsenalDesc;
     }
 }
