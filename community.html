@@ -31,26 +31,29 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow-x: hidden;
             perspective: 1000px;
         }
 
         /* Navbar */
         header {
-            background: rgba(11, 12, 16, 0.9);
+            background: rgba(11, 12, 16, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(234, 179, 8, 0.25);
-            padding: 18px 8%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .brand {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--gold);
             text-decoration: none;
@@ -60,13 +63,14 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .nav-menu a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: 0.3s;
         }
@@ -78,14 +82,15 @@
         /* Community Content Section */
         .community-section {
             max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
+            width: 100%;
+            margin: 45px auto;
+            padding: 0 15px;
             text-align: center;
         }
 
         .community-section h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             color: var(--gold);
             margin-bottom: 12px;
             text-shadow: 0 0 18px var(--gold-glow);
@@ -93,14 +98,15 @@
 
         .community-section > p {
             color: var(--text-muted);
-            margin-bottom: 45px;
-            font-size: 1.05rem;
+            margin-bottom: 35px;
+            font-size: 0.98rem;
+            line-height: 1.5;
         }
 
         .social-cards-grid {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
@@ -108,8 +114,9 @@
             background: linear-gradient(145deg, #161826, #0e1017);
             border: 1px solid rgba(234, 179, 8, 0.25);
             border-radius: 16px;
-            padding: 35px 25px;
-            width: 320px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 320px;
             text-decoration: none;
             color: inherit;
             position: relative;
@@ -129,7 +136,7 @@
         .social-icon {
             width: 55px;
             height: 55px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             transform: translateZ(40px);
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
             display: flex;
@@ -144,7 +151,7 @@
 
         .social-card h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #fff;
             margin-bottom: 10px;
             transform: translateZ(30px);
@@ -152,9 +159,9 @@
 
         .social-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.5;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             transform: translateZ(20px);
         }
 
@@ -178,10 +185,17 @@
 
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            header { padding: 18px 8%; }
+            .brand { font-size: 1.5rem; }
+            .community-section { margin: 60px auto; padding: 0 20px; }
+            .community-section h1 { font-size: 2.6rem; }
         }
     </style>
 </head>
@@ -192,7 +206,7 @@
         <nav class="nav-menu">
             <a href="index.html">Home</a>
             <a href="arsenal.html">Arsenal & Wiki</a>
-            <a href="community.html" class="active-link" style="color: #eab308; font-weight: 600;">Community</a>
+            <a href="community.html" class="active-link" style="color: var(--gold); font-weight: 600;">Community</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
@@ -214,8 +228,8 @@
                 <span class="social-btn">Join Discord</span>
             </a>
 
-            <!-- YouTube Card -->
-            <a href="https://www.youtube.com/channel/UCsGb1ROac_-HlKWNVSyxbyg" target="_blank" class="social-card" data-tilt>
+            <!-- YouTube Card (Updated URL) -->
+            <a href="https://www.youtube.com/channel/UCqZWHzD9XOpc-NtImfaFb6g" target="_blank" class="social-card" data-tilt>
                 <div class="social-icon">
                     <svg viewBox="0 0 24 24" fill="#FF0000">
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -263,6 +277,8 @@
             });
         });
     </script>
+
+    <!-- Settings Script Integration -->
     <script src="settings.js"></script>
 </body>
 </html>
