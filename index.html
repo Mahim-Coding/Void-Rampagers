@@ -32,11 +32,14 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO / SPLASH SCREEN WITH GAME BG --- */
+        /* --- INTRO / SPLASH SCREEN WITH YOUR CUSTOM IMAGE --- */
         #introScreen {
             position: fixed;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            /* GitHub-এ intro-bg.png আপলোড করলে সেটি দেখাবে, না হলে Drive লিংক থেকে লোড হবে */
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.78)), 
+                        url('intro-bg.png') no-repeat center center/cover,
+                        url('https://lh3.googleusercontent.com/d/1eP4LQ73utq6ZE6JKlMgsnTfObTjcrByO') no-repeat center center/cover;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -74,10 +77,12 @@
         }
 
         .intro-subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 30px;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 32px;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
         }
 
         .enter-btn {
@@ -90,13 +95,13 @@
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(255, 69, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.7);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .enter-btn:hover {
             transform: scale(1.08);
-            box-shadow: 0 0 40px rgba(234, 179, 8, 0.9);
+            box-shadow: 0 0 40px rgba(234, 179, 8, 1);
         }
 
         /* Header & Navbar */
@@ -371,6 +376,7 @@
         @media (min-width: 768px) {
             header { padding: 18px 8%; }
             .brand { font-size: 1.6rem; }
+            .fire-logo { font-size: 4rem; }
             .hero { padding: 70px 20px 40px; }
             .hero h1 { font-size: 3rem; }
             .search-box { min-width: 260px; flex: 1; }
@@ -470,7 +476,6 @@
     </footer>
 
     <script>
-        // --- INTRO SCRIPT ---
         function enterSite() {
             const intro = document.getElementById('introScreen');
             intro.classList.add('fade-out');
