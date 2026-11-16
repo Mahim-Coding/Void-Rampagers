@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
             border: 1px solid var(--gold, #eab308);
             border-radius: 10px;
             padding: 15px;
-            width: 230px;
+            width: 220px;
+            max-width: 85vw;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             z-index: 999;
             text-align: left;
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             background-color: #f1f5f9 !important;
         }
         body.light-mode header { background: rgba(255, 255, 255, 0.92) !important; }
-        body.light-mode .hero h1, body.light-mode .page-header h1, body.light-mode h3, body.light-mode h4 { color: #0f172a !important; }
+        body.light-mode h1, body.light-mode h3, body.light-mode h4 { color: #0f172a !important; }
     `;
     document.head.appendChild(style);
 
