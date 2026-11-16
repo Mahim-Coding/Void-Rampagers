@@ -104,49 +104,68 @@
             box-shadow: 0 0 40px rgba(234, 179, 8, 1);
         }
 
-        /* Header & Navbar */
-        header {
-            background: rgba(11, 12, 16, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(234, 179, 8, 0.25);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+      /* Header & Navbar - Mobile & Desktop Friendly */
+header {
+    background: rgba(11, 12, 16, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(234, 179, 8, 0.25);
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column; /* মোবাইলে লোগো উপরে এবং বাটনগুলো নিচে থাকবে */
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        .brand {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--gold);
-            text-decoration: none;
-            text-shadow: 0 0 15px var(--gold-glow);
-            letter-spacing: 1px;
-        }
+.brand {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-decoration: none;
+    text-shadow: 0 0 15px var(--gold-glow);
+    text-align: center;
+}
 
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
-        .nav-menu a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+.nav-menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
 
-        .nav-menu a:hover {
-            color: var(--gold);
-        }
-
+/* বড় স্ক্রিনে (পিসি/ট্যাবলেট) আবার আগের মতো পাশাপাশি চলে আসবে */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 18px 8%;
+    }
+    .nav-menu {
+        width: auto;
+        gap: 18px;
+    }
+    .nav-menu a {
+        background: transparent;
+        padding: 0;
+        font-size: 0.95rem;
+    }
+}
         .arsenal-nav-btn {
             background: linear-gradient(90deg, rgba(234, 179, 8, 0.15), rgba(147, 51, 234, 0.25));
             border: 1px solid var(--gold);
