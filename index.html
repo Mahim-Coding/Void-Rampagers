@@ -33,22 +33,22 @@
         }
 
         /* --- INTRO / SPLASH SCREEN WITH YOUR CUSTOM IMAGE --- */
-        #introScreen {
-            position: fixed;
-            inset: 0;
-            /* GitHub-এ intro-bg.png আপলোড করলে সেটি দেখাবে, না হলে Drive লিংক থেকে লোড হবে */
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.78)), 
-                        url('intro-bg.png') no-repeat center center/cover,
-                        url('https://lh3.googleusercontent.com/d/1eP4LQ73utq6ZE6JKlMgsnTfObTjcrByO') no-repeat center center/cover;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
+        /* --- INTRO / SPLASH SCREEN WITH LOCAL GAME BG --- */
+#introScreen {
+    position: fixed;
+    inset: 0;
+    /* নিচে 'bg.jpg' এর জায়গায় আপনার আপলোড করা ছবির সঠিক নামটি দেবেন */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url('bg.png') no-repeat center center;
+    background-size: cover; /* এটি মোবাইল ও পিসি উভয় স্ক্রিনে ছবিকে পারফেক্টভাবে ফিট করবে */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
 
         #introScreen.fade-out {
             opacity: 0;
