@@ -32,13 +32,13 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO / SPLASH SCREEN WITH DIRECT GOOGLE DRIVE BG --- */
+        /* --- INTRO / SPLASH SCREEN (Solid Dark Fantasy Background) --- */
         #introScreen {
             position: fixed;
             inset: 0;
-            background: #0b0c10 linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)), url('https://lh3.googleusercontent.com/d/1uddR4esCTgO2Kx_vqYOEqtdrXU3D7r5g') no-repeat center center;
-            background-size: cover;
-            z-index: 9999;
+            background: #050508;
+            background-image: radial-gradient(circle at center, #240a3a 0%, #050508 75%);
+            z-index: 99999;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -55,7 +55,7 @@
 
         .fire-logo {
             font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: #fff;
             text-transform: uppercase;
@@ -76,7 +76,7 @@
 
         .intro-subtitle {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 30px;
             letter-spacing: 1px;
         }
@@ -85,9 +85,9 @@
             background: linear-gradient(90deg, #ff4500, #eab308);
             color: #000;
             font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            padding: 14px 34px;
+            padding: 14px 36px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -469,7 +469,7 @@
                 <p>Find all hidden star locations and secret chests inside the Castle dungeons without taking damage.</p>
             </div>
             <button class="read-btn" onclick="openModal('Chapter 5 Secret Areas', 'Look closely at cracked walls in Dungeon 42 and 44. Use Fire or Earth area-of-effect spells to break hidden barriers and collect bonus gold tokens and diamonds.')">Read Full Guide</button>
-        </div>
+    </div>
 
         <div class="guide-card" data-category="Builds">
             <div>
