@@ -504,14 +504,24 @@
             }, 800);
         }
 
+        // --- ENHANCED SEARCH & FILTER SYSTEM ---
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.guide-card');
 
         searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase();
+            const query = this.value.toLowerCase().trim();
+            
             cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(query) ? 'flex' : 'none';
+                const titleText = card.querySelector('h3').innerText.toLowerCase();
+                const descText = card.querySelector('p').innerText.toLowerCase();
+                const badgeText = card.querySelector('.badge').innerText.toLowerCase();
+                
+                // টাইপ করা লেখা টাইটেল, ডেসক্রিপশন বা ব্যাজের সাথে মিললে কার্ড দেখাবে
+                if (titleText.includes(query) || descText.includes(query) || badgeText.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
 
@@ -520,7 +530,7 @@
             btn.classList.add('active');
 
             cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
+                if (category === 'all' || card.dataset.category.toLowerCase() === category.toLowerCase()) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
