@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             background-image: radial-gradient(circle at top, #181629 0%, #0b0c12 70%);
         }
 
-        /* Navbar */
+        /* Navbar Style */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -44,30 +44,61 @@
             padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;
         }
 
-        /* Hub Content */
+        /* Container & Header */
         .container { max-width: 1050px; margin: 0 auto; padding: 50px 20px; }
         .hub-header { text-align: center; margin-bottom: 45px; }
         .hub-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #eab308; text-shadow: 0 0 20px rgba(234, 179, 8, 0.4); margin-bottom: 10px; }
         .hub-header p { color: #94a3b8; font-size: 1rem; }
 
+        /* Grid Layout */
         .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 25px; }
+        
+        /* Advanced Animated Card */
         .cat-card {
-            background: #13141f; border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px; padding: 35px 25px; text-align: center;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
-            display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+            background: #13141f; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px; 
+            padding: 35px 25px; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            align-items: center;
         }
+
+        /* Hover Animation: Levitate + Neon Aura */
         .cat-card:hover {
-            transform: translateY(-10px) scale(1.02); border-color: #a855f7;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 0 0 15px rgba(236, 72, 153, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            border-color: #a855f7;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 
+                        0 0 20px rgba(236, 72, 153, 0.25);
         }
-        .cat-icon { font-size: 3.2rem; margin-bottom: 18px; display: inline-block; filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.3)); }
-        .cat-card:hover .cat-icon { animation: floatBounce 1.5s infinite ease-in-out; }
-        @keyframes floatBounce { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(6deg); } }
+
+        /* Floating Icon Animation */
+        .cat-icon { 
+            font-size: 3.2rem; 
+            margin-bottom: 18px; 
+            display: inline-block; 
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.3)); 
+        }
+        .cat-card:hover .cat-icon { 
+            animation: floatBounce 1.5s infinite ease-in-out; 
+        }
+        @keyframes floatBounce { 
+            0%, 100% { transform: translateY(0) rotate(0deg); } 
+            50% { transform: translateY(-8px) rotate(6deg); } 
+        }
 
         .cat-card h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
         .cat-card p { color: #9ca3af; font-size: 0.9rem; line-height: 1.5; margin-bottom: 28px; }
 
+        /* Shimmer Button Style */
         .explore-btn {
             display: inline-block; text-decoration: none;
             background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
@@ -81,11 +112,15 @@
             transition: all 0.6s ease;
         }
         .explore-btn:hover::before { left: 100%; }
-        .explore-btn:hover { transform: scale(1.06); box-shadow: 0 0 25px rgba(236, 72, 153, 0.75); }
+        .explore-btn:hover { 
+            transform: scale(1.06); 
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.75), 0 0 10px rgba(234, 179, 8, 0.5); 
+        }
     </style>
 </head>
 <body>
 
+    <!-- TOP NAVIGATION BAR -->
     <nav class="navbar">
         <a href="index.html" class="nav-brand">
             <img src="sword_0.png" alt="Logo" class="nav-logo">
@@ -100,6 +135,7 @@
         </ul>
     </nav>
 
+    <!-- MAIN HUB CONTENT -->
     <div class="container">
         <div class="hub-header">
             <h1>ARMORY & ARSENAL</h1>
@@ -107,36 +143,42 @@
         </div>
 
         <div class="category-grid">
+            <!-- Swords -->
             <div class="cat-card">
                 <div class="cat-icon">⚔️</div>
                 <h2>Swords & Blades</h2>
                 <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
                 <a href="sword.html" class="explore-btn">Open Swords</a>
             </div>
+            <!-- Grimorios -->
             <div class="cat-card">
                 <div class="cat-icon">📖</div>
                 <h2>Grimorios</h2>
                 <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
                 <a href="grimorios.html" class="explore-btn">Open Grimorios</a>
             </div>
+            <!-- Maces -->
             <div class="cat-card">
                 <div class="cat-icon">🔨</div>
                 <h2>Maces & Crushers</h2>
                 <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
                 <a href="mace.html" class="explore-btn">Open Maces</a>
             </div>
+            <!-- Staffs -->
             <div class="cat-card">
                 <div class="cat-icon">🪄</div>
                 <h2>Magic Staffs</h2>
                 <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
                 <a href="staff.html" class="explore-btn">Open Staffs</a>
             </div>
+            <!-- Daggers -->
             <div class="cat-card">
                 <div class="cat-icon">🗡️</div>
                 <h2>Daggers & Knives</h2>
                 <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
                 <a href="dagger.html" class="explore-btn">Open Daggers</a>
             </div>
+            <!-- Spears -->
             <div class="cat-card">
                 <div class="cat-icon">🔱</div>
                 <h2>Spears & Polearms</h2>
