@@ -3,215 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers Wiki - Weapon Categories</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Void-Rampagers Wiki - Armory & Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #0b0c12;
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px 20px;
             background-image: radial-gradient(circle at top, #181629 0%, #0b0c12 70%);
         }
 
-        .hub-header {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .hub-header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #eab308;
-            text-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
-            margin-bottom: 10px;
-        }
-
-        .hub-header p {
-            color: #94a3b8;
-            font-size: 1rem;
-        }
-
-        /* 3-Column Grid Layout like the screenshot */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 25px;
-            max-width: 1050px;
-            width: 100%;
-        }
-
-        /* Card Styling */
-        .cat-card {
-            background: #13141f;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 35px 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        border-color 0.4s ease, 
-                        box-shadow 0.4s ease;
+        /* Navbar */
+        .navbar {
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
             align-items: center;
-        }
-
-        /* Unique Hover Animation: Levitate + Neon Aura */
-        .cat-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #a855f7;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 
-                        0 0 15px rgba(236, 72, 153, 0.2);
-        }
-
-        /* Floating Icon Animation */
-        .cat-icon {
-            font-size: 3.2rem;
-            margin-bottom: 18px;
-            display: inline-block;
-            transition: transform 0.5s ease;
-            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.3));
-        }
-
-        .cat-card:hover .cat-icon {
-            animation: floatBounce 1.5s infinite ease-in-out;
-        }
-
-        @keyframes floatBounce {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(6deg); }
-        }
-
-        .cat-card h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-
-        .cat-card p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 28px;
-        }
-
-        /* Gradient Pill Button like the image */
-        .explore-btn {
-            display: inline-block;
-            text-decoration: none;
-            background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 12px 32px;
-            border-radius: 50px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
-        }
-
-        /* Button Shimmer / Light Sweep Animation */
-        .explore-btn::before {
-            content: '';
-            position: absolute;
+            background-color: #0b0c12;
+            padding: 18px 40px;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            position: sticky;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            z-index: 1000;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; font-weight: 500; transition: 0.3s; }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link.active-pill {
+            display: flex; align-items: center; gap: 8px; background: #13141f;
+            border: 1px solid #a855f7; color: #ffffff; padding: 8px 16px;
+            border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+        }
+        .settings-btn {
+            display: flex; align-items: center; gap: 8px; background: #13141f;
+            border: 1px solid rgba(168, 85, 247, 0.4); color: #ffffff;
+            padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;
+        }
+
+        /* Hub Content */
+        .container { max-width: 1050px; margin: 0 auto; padding: 50px 20px; }
+        .hub-header { text-align: center; margin-bottom: 45px; }
+        .hub-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #eab308; text-shadow: 0 0 20px rgba(234, 179, 8, 0.4); margin-bottom: 10px; }
+        .hub-header p { color: #94a3b8; font-size: 1rem; }
+
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 25px; }
+        .cat-card {
+            background: #13141f; border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px; padding: 35px 25px; text-align: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+        }
+        .cat-card:hover {
+            transform: translateY(-10px) scale(1.02); border-color: #a855f7;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 0 0 15px rgba(236, 72, 153, 0.2);
+        }
+        .cat-icon { font-size: 3.2rem; margin-bottom: 18px; display: inline-block; filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.3)); }
+        .cat-card:hover .cat-icon { animation: floatBounce 1.5s infinite ease-in-out; }
+        @keyframes floatBounce { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(6deg); } }
+
+        .cat-card h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
+        .cat-card p { color: #9ca3af; font-size: 0.9rem; line-height: 1.5; margin-bottom: 28px; }
+
+        .explore-btn {
+            display: inline-block; text-decoration: none;
+            background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
+            color: #ffffff; font-weight: 600; font-size: 0.95rem;
+            padding: 12px 32px; border-radius: 50px; position: relative; overflow: hidden;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        .explore-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
             background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
             transition: all 0.6s ease;
         }
-
-        .explore-btn:hover::before {
-            left: 100%;
-        }
-
-        .explore-btn:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(236, 72, 153, 0.75), 
-                        0 0 10px rgba(234, 179, 8, 0.5);
-            color: #fff;
-        }
-
-        .explore-btn:active {
-            transform: scale(0.96);
-        }
+        .explore-btn:hover::before { left: 100%; }
+        .explore-btn:hover { transform: scale(1.06); box-shadow: 0 0 25px rgba(236, 72, 153, 0.75); }
     </style>
 </head>
 <body>
 
-    <div class="hub-header">
-        <h1>ARMORY & ARSENAL</h1>
-        <p>Select a weapon category below to explore stats, elemental powers, and hidden abilities!</p>
-    </div>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
 
-    <div class="category-grid">
-
-        <!-- 1. SWORDS -->
-        <div class="cat-card">
-            <div class="cat-icon">⚔️</div>
-            <h2>Swords & Blades</h2>
-            <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
-            <a href="sword.html" class="explore-btn">Open Swords</a>
+    <div class="container">
+        <div class="hub-header">
+            <h1>ARMORY & ARSENAL</h1>
+            <p>Select a weapon category below to explore stats, elemental powers, and hidden abilities!</p>
         </div>
 
-        <!-- 2. GRIMORIOS -->
-        <div class="cat-card">
-            <div class="cat-icon">📖</div>
-            <h2>Grimorios</h2>
-            <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
-            <a href="grimorios.html" class="explore-btn">Open Grimorios</a>
+        <div class="category-grid">
+            <div class="cat-card">
+                <div class="cat-icon">⚔️</div>
+                <h2>Swords & Blades</h2>
+                <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
+                <a href="sword.html" class="explore-btn">Open Swords</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">📖</div>
+                <h2>Grimorios</h2>
+                <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
+                <a href="grimorios.html" class="explore-btn">Open Grimorios</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🔨</div>
+                <h2>Maces & Crushers</h2>
+                <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
+                <a href="mace.html" class="explore-btn">Open Maces</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🪄</div>
+                <h2>Magic Staffs</h2>
+                <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
+                <a href="staff.html" class="explore-btn">Open Staffs</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🗡️</div>
+                <h2>Daggers & Knives</h2>
+                <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
+                <a href="dagger.html" class="explore-btn">Open Daggers</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🔱</div>
+                <h2>Spears & Polearms</h2>
+                <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
+                <a href="spears.html" class="explore-btn">Open Spears</a>
+            </div>
         </div>
-
-        <!-- 3. MACES -->
-        <div class="cat-card">
-            <div class="cat-icon">🔨</div>
-            <h2>Maces & Crushers</h2>
-            <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
-            <a href="mace.html" class="explore-btn">Open Maces</a>
-        </div>
-
-        <!-- 4. STAFFS -->
-        <div class="cat-card">
-            <div class="cat-icon">🪄</div>
-            <h2>Magic Staffs</h2>
-            <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
-            <a href="staff.html" class="explore-btn">Open Staffs</a>
-        </div>
-
-        <!-- 5. DAGGERS -->
-        <div class="cat-card">
-            <div class="cat-icon">🗡️</div>
-            <h2>Daggers & Knives</h2>
-            <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
-            <a href="dagger.html" class="explore-btn">Open Daggers</a>
-        </div>
-
-        <!-- 6. SPEARS -->
-        <div class="cat-card">
-            <div class="cat-icon">🔱</div>
-            <h2>Spears & Polearms</h2>
-            <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
-            <a href="spears.html" class="explore-btn">Open Spears</a>
-        </div>
-
     </div>
 
 </body>
