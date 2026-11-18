@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers Wiki - Spellbooks Arsenal</title>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .arsenal-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .arsenal-section h2 {
+            font-family: 'Cinzel', serif;
+            color: #eab308;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
+        }
+
+        .weapons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .weapon-card {
+            background: #14161f;
+            border: 1px solid rgba(234, 179, 8, 0.25);
+            border-radius: 10px;
+            padding: 15px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-5px);
+            border-color: #eab308;
+            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.2);
+        }
+
+        .weapon-card img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            align-self: center;
+            image-rendering: pixelated;
+        }
+
+        .weapon-card h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin: 5px 0 10px 0;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .weapon-card p {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin: 4px 0;
+            width: 100%;
+        }
+
+        .weapon-card strong {
+            color: #eab308;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="arsenal-section">
+        <h2>Spellbooks & Arcane Tomes Collection</h2>
+        <div class="weapons-grid">
+            
+            <!-- 1. Arcane Tome 1 -->
+            <div class="weapon-card">
+                <img src="spellbook_1.png" alt="Arcane Tome I">
+                <h3>Apprentice Tome</h3>
+                <p><strong>Type:</strong> Magic Book</p>
+                <p><strong>Power:</strong> 18 Attack</p>
+                <p><strong>Ability:</strong> Contains basic introductory spells to channel novice arcane energy.</p>
+            </div>
+
+            <!-- 2. Spider Dark Book -->
+            <div class="weapon-card">
+                <img src="spellbook_2.png" alt="Spider Dark Book">
+                <h3>Spider Venom Grimoire</h3>
+                <p><strong>Type:</strong> Dark / Poison</p>
+                <p><strong>Power:</strong> 46 Attack</p>
+                <p><strong>Ability:</strong> Radiates a sinister red glow, summoning toxic spiders and venomous web projectiles.</p>
+            </div>
+
+            <!-- 3. Air Wind Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_air.png" alt="Air Wind Spellbook">
+                <h3>Tome of Zephyr Winds</h3>
+                <p><strong>Type:</strong> Wind / Air</p>
+                <p><strong>Power:</strong> 44 Attack</p>
+                <p><strong>Ability:</strong> Bound in turquoise leather, unleashing swift gale-force winds and atmospheric shockwaves.</p>
+            </div>
+
+            <!-- 4. Anubis / Egyptian Tome -->
+            <div class="weapon-card">
+                <img src="spellbook_anubis.png" alt="Anubis Scarab Tome">
+                <h3>Scarab Codex of Anubis</h3>
+                <p><strong>Type:</strong> Ancient / Holy</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Inscribed with golden scarabs, invoking desert curses and ancient protective magic.</p>
+            </div>
+
+            <!-- 5. Dark Magic Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_dark.png" alt="Dark Magic Spellbook">
+                <h3>Grimoire of Abyssal Shadows</h3>
+                <p><strong>Type:</strong> Dark Magic</p>
+                <p><strong>Power:</strong> 55 Attack</p>
+                <p><strong>Ability:</strong> Pulsates with purple energy and a grinning skull seal, firing piercing dark bolts.</p>
+            </div>
+
+            <!-- 6. Earth Nature Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_earth.png" alt="Earth Nature Spellbook">
+                <h3>Verdant Codex of Roots</h3>
+                <p><strong>Type:</strong> Earth / Nature</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> Secured with sturdy wooden straps, casting thorny vines and earthy projectiles.</p>
+            </div>
+
+            <!-- 7. Fire Magma Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_fire.png" alt="Fire Magma Spellbook">
+                <h3>Infernal Tome of Flames</h3>
+                <p><strong>Type:</strong> Fire Magic</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Features a glowing fiery eye emblem that launches explosive fireballs and burning embers.</p>
+            </div>
+
+            <!-- 8. Light Holy Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_light.png" alt="Light Holy Spellbook">
+                <h3>Codex of Radiant Sunbeams</h3>
+                <p><strong>Type:</strong> Holy / Light</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> Radiates brilliant golden sunlight, highly effective at banishing dark creatures and undead.</p>
+            </div>
+
+            <!-- 9. Necromancy Skull Book -->
+            <div class="weapon-card">
+                <img src="spellbook_necro.png" alt="Necromancy Skull Book">
+                <h3>Cursed Tome of the Undead</h3>
+                <p><strong>Type:</strong> Necromancy</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> A living screaming face tome that drains enemy life force and raises dark spirits.</p>
+            </div>
+
+            <!-- 10. Water Ice Spellbook -->
+            <div class="weapon-card">
+                <img src="spellbook_water.png" alt="Water Ice Spellbook">
+                <h3>Glacial Tome of Tides</h3>
+                <p><strong>Type:</strong> Water / Ice</p>
+                <p><strong>Power:</strong> 47 Attack</p>
+                <p><strong>Ability:</strong> Braced with frost-blue vials, firing pressurized water jets and freezing icicles.</p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
