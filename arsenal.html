@@ -53,7 +53,7 @@
         /* Grid Layout */
         .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 25px; }
         
-        /* Advanced Animated Card */
+        /* Base Card Style */
         .cat-card {
             background: #13141f; 
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -69,14 +69,6 @@
             flex-direction: column; 
             justify-content: space-between; 
             align-items: center;
-        }
-
-        /* Hover Animation: Levitate + Neon Aura */
-        .cat-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #a855f7;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 
-                        0 0 20px rgba(236, 72, 153, 0.25);
         }
 
         /* Floating Icon Animation */
@@ -98,13 +90,12 @@
         .cat-card h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
         .cat-card p { color: #9ca3af; font-size: 0.9rem; line-height: 1.5; margin-bottom: 28px; }
 
-        /* Shimmer Button Style */
+        /* Base Button Style with Shimmer */
         .explore-btn {
             display: inline-block; text-decoration: none;
-            background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
             color: #ffffff; font-weight: 600; font-size: 0.95rem;
             padding: 12px 32px; border-radius: 50px; position: relative; overflow: hidden;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: all 0.3s ease;
         }
         .explore-btn::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
@@ -112,10 +103,99 @@
             transition: all 0.6s ease;
         }
         .explore-btn:hover::before { left: 100%; }
-        .explore-btn:hover { 
-            transform: scale(1.06); 
-            box-shadow: 0 0 25px rgba(236, 72, 153, 0.75), 0 0 10px rgba(234, 179, 8, 0.5); 
+
+        /* --- UNIQUE COLOR THEMES FOR EACH CATEGORY --- */
+
+        /* 1. Swords (Golden & Amber Theme) */
+        .card-sword:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #eab308;
+            box-shadow: 0 15px 35px rgba(234, 179, 8, 0.25), 0 0 20px rgba(234, 179, 8, 0.2);
         }
+        .btn-sword {
+            background: linear-gradient(90deg, #ca8a04 0%, #eab308 100%);
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+        }
+        .btn-sword:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.75);
+        }
+
+        /* 2. Grimorios (Purple & Magenta Theme) */
+        .card-grimorios:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #a855f7;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 0 0 20px rgba(236, 72, 153, 0.2);
+        }
+        .btn-grimorios {
+            background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        .btn-grimorios:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.75);
+        }
+
+        /* 3. Maces (Orange & Red Fire Theme) */
+        .card-mace:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #f97316;
+            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.25), 0 0 20px rgba(239, 68, 68, 0.2);
+        }
+        .btn-mace {
+            background: linear-gradient(90deg, #c2410c 0%, #f97316 100%);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+        .btn-mace:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(249, 115, 22, 0.75);
+        }
+
+        /* 4. Staffs (Cyan & Blue Arcane Theme) */
+        .card-staff:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #06b6d4;
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25), 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        .btn-staff {
+            background: linear-gradient(90deg, #0284c7 0%, #06b6d4 100%);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+        .btn-staff:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.75);
+        }
+
+        /* 5. Daggers (Emerald Green & Teal Theme) */
+        .card-dagger:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #10b981;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25), 0 0 20px rgba(20, 184, 166, 0.2);
+        }
+        .btn-dagger {
+            background: linear-gradient(90deg, #047857 0%, #10b981 100%);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .btn-dagger:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.75);
+        }
+
+        /* 6. Spears (Indigo & Blue Royal Theme) */
+        .card-spear:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25), 0 0 20px rgba(79, 70, 229, 0.2);
+        }
+        .btn-spear {
+            background: linear-gradient(90deg, #4338ca 0%, #6366f1 100%);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+        .btn-spear:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.75);
+        }
+
     </style>
 </head>
 <body>
@@ -143,47 +223,52 @@
         </div>
 
         <div class="category-grid">
-            <!-- Swords -->
-            <div class="cat-card">
+            <!-- 1. Swords -->
+            <div class="cat-card card-sword">
                 <div class="cat-icon">⚔️</div>
                 <h2>Swords & Blades</h2>
                 <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
-                <a href="sword.html" class="explore-btn">Open Swords</a>
+                <a href="sword.html" class="explore-btn btn-sword">Open Swords</a>
             </div>
-            <!-- Grimorios -->
-            <div class="cat-card">
+            
+            <!-- 2. Grimorios -->
+            <div class="cat-card card-grimorios">
                 <div class="cat-icon">📖</div>
                 <h2>Grimorios</h2>
                 <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
-                <a href="grimorios.html" class="explore-btn">Open Grimorios</a>
+                <a href="grimorios.html" class="explore-btn btn-grimorios">Open Grimorios</a>
             </div>
-            <!-- Maces -->
-            <div class="cat-card">
+            
+            <!-- 3. Maces -->
+            <div class="cat-card card-mace">
                 <div class="cat-icon">🔨</div>
                 <h2>Maces & Crushers</h2>
                 <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
-                <a href="mace.html" class="explore-btn">Open Maces</a>
+                <a href="mace.html" class="explore-btn btn-mace">Open Maces</a>
             </div>
-            <!-- Staffs -->
-            <div class="cat-card">
-                <div class="cat-icon">🪄</div>
+            
+            <!-- 4. Staffs -->
+            <div class="cat-card card-staff">
+                <div class="cat-icon">🔮</div>
                 <h2>Magic Staffs</h2>
                 <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
-                <a href="staff.html" class="explore-btn">Open Staffs</a>
+                <a href="staff.html" class="explore-btn btn-staff">Open Staffs</a>
             </div>
-            <!-- Daggers -->
-            <div class="cat-card">
+            
+            <!-- 5. Daggers -->
+            <div class="cat-card card-dagger">
                 <div class="cat-icon">🗡️</div>
                 <h2>Daggers & Knives</h2>
                 <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
-                <a href="dagger.html" class="explore-btn">Open Daggers</a>
+                <a href="dagger.html" class="explore-btn btn-dagger">Open Daggers</a>
             </div>
-            <!-- Spears -->
-            <div class="cat-card">
+            
+            <!-- 6. Spears -->
+            <div class="cat-card card-spear">
                 <div class="cat-icon">🔱</div>
                 <h2>Spears & Polearms</h2>
                 <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
-                <a href="spears.html" class="explore-btn">Open Spears</a>
+                <a href="spears.html" class="explore-btn btn-spear">Open Spears</a>
             </div>
         </div>
     </div>
