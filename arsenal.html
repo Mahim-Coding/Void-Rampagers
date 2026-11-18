@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers Wiki - Arsenal</title>
+    <title>Void-Rampagers Wiki - Complete Arsenal</title>
     <style>
         body {
             background-color: #0b0c10;
@@ -13,19 +13,65 @@
             padding: 0;
         }
 
+        header {
+            text-align: center;
+            padding: 30px 20px 10px 20px;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            color: #eab308;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #14161f;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: #eab308;
+            color: #0b0c10;
+            border-color: #eab308;
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+        }
+
         .arsenal-section {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 20px auto;
             padding: 0 20px;
-            text-align: center;
+            display: none;
+        }
+
+        .arsenal-section.active {
+            display: block;
         }
 
         .arsenal-section h2 {
             font-family: 'Cinzel', serif;
             color: #eab308;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
         }
 
         .weapons-grid {
@@ -84,293 +130,444 @@
             color: #eab308;
         }
     </style>
+    <script>
+        function openCategory(evt, categoryName) {
+            let sections = document.getElementsByClassName("arsenal-section");
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].classList.remove("active");
+            }
+            let buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            document.getElementById(categoryName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </head>
 <body>
 
-    <!-- Daggers Collection Part 1 -->
-    <section class="arsenal-section">
-        <h2>Daggers & Blades Collection (Part 1)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_0.png" alt="Basic Dagger">
-                <h3>Basic Dagger</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 12 Attack</p>
-                <p><strong>Ability:</strong> Standard melee slash for early game combat.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_0_plus.png" alt="Enhanced Dagger">
-                <h3>Enhanced Dagger</h3>
-                <p><strong>Type:</strong> Dagger+</p>
-                <p><strong>Power:</strong> 18 Attack</p>
-                <p><strong>Ability:</strong> Upgraded edge with slightly increased critical strike chance.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_1.png" alt="Butcher Cleaver">
-                <h3>Butcher Cleaver</h3>
-                <p><strong>Type:</strong> Dagger / Heavy</p>
-                <p><strong>Power:</strong> 22 Attack</p>
-                <p><strong>Ability:</strong> Deals heavy blunt-cutting damage to close enemies.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_2.png" alt="Curved Blade">
-                <h3>Curved Blade</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 25 Attack</p>
-                <p><strong>Ability:</strong> Faster attack speed and smooth slicing capability.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_3.png" alt="Ninja Kunai">
-                <h3>Ninja Kunai</h3>
-                <p><strong>Type:</strong> Dagger / Thrown</p>
-                <p><strong>Power:</strong> 28 Attack</p>
-                <p><strong>Ability:</strong> Can be thrown quickly with high agility bonus.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_4.png" alt="Venom Dagger">
-                <h3>Venom Dagger</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 30 Attack</p>
-                <p><strong>Ability:</strong> Inflicts toxic poison over time (DoT) damage on targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_5.png" alt="Serpent Fang">
-                <h3>Serpent Fang</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 35 Attack</p>
-                <p><strong>Ability:</strong> Pierces through light enemy armor with venomous fangs.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_6.png" alt="Magma Shiv">
-                <h3>Magma Shiv</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 40 Attack</p>
-                <p><strong>Ability:</strong> Burns enemies on hit, dealing extra thermal damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_7.png" alt="Golden Kunai">
-                <h3>Golden Kunai</h3>
-                <p><strong>Type:</strong> Elite</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Grants extra gold drops from defeated enemies.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_8.png" alt="Death's Sting">
-                <h3>Death's Sting</h3>
-                <p><strong>Type:</strong> Dark</p>
-                <p><strong>Power:</strong> 55 Attack</p>
-                <p><strong>Ability:</strong> High critical hit multiplier with dark energy aura.</p>
-            </div>
-        </div>
-    </section>
+    <header>
+        <h1>Void-Rampagers Wiki</h1>
+        <p style="color: #94a3b8;">Complete Weapon & Item Arsenal</p>
+    </header>
 
-    <!-- Daggers Collection Part 2 -->
-    <section class="arsenal-section">
-        <h2>Special Daggers & Blades (Part 2)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_bone.png" alt="Bone Dagger">
-                <h3>Bone Shiv</h3>
-                <p><strong>Type:</strong> Primitive</p>
-                <p><strong>Power:</strong> 15 Attack</p>
-                <p><strong>Ability:</strong> Lightweight primitive blade crafted from monster bones.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_chess_pawn_A.png" alt="Chess Dagger">
-                <h3>Pawn's Edge</h3>
-                <p><strong>Type:</strong> Unique</p>
-                <p><strong>Power:</strong> 24 Attack</p>
-                <p><strong>Ability:</strong> Balanced strike styled like a strategic chess piece.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dart.png" alt="Shadow Dart">
-                <h3>Shadow Dart</h3>
-                <p><strong>Type:</strong> Thrown</p>
-                <p><strong>Power:</strong> 20 Attack</p>
-                <p><strong>Ability:</strong> Swift projectile for silent ranged punctures.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dual_bone.png" alt="Dual Bone Dagger">
-                <h3>Twin Bone Daggers</h3>
-                <p><strong>Type:</strong> Dual</p>
-                <p><strong>Power:</strong> 32 Attack</p>
-                <p><strong>Ability:</strong> Dual-wielded bone blades for rapid combo attacks.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_poison.png" alt="Toxic Blade">
-                <h3>Toxic Stinger</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 38 Attack</p>
-                <p><strong>Ability:</strong> Dripping with acid that eats away at enemy health.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_rogue.png" alt="Rogue Dagger">
-                <h3>Rogue's Flame</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 42 Attack</p>
-                <p><strong>Ability:</strong> Ignites enemies with a fiery sneak-attack edge.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_spider.png" alt="Spider Dagger">
-                <h3>Black Widow</h3>
-                <p><strong>Type:</strong> Venom</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Injects paralytic venom slowing down opponents.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_steel.png" alt="Steel Dagger">
-                <h3>Reinforced Steel</h3>
-                <p><strong>Type:</strong> Steel</p>
-                <p><strong>Power:</strong> 36 Attack</p>
-                <p><strong>Ability:</strong> Durable steel build offering reliable melee defense.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_treasure.png" alt="Treasure Dagger">
-                <h3>Gilded Relic</h3>
-                <p><strong>Type:</strong> Treasure</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Ancient golden artifact packed with high magical value.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_treasure_dual.png" alt="Treasure Dual Dagger">
-                <h3>Golden Twins</h3>
-                <p><strong>Type:</strong> Dual Treasure</p>
-                <p><strong>Power:</strong> 60 Attack</p>
-                <p><strong>Ability:</strong> Dual golden treasures that maximize loot and damage.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openCategory(event, 'swords')">Swords & Blades</button>
+        <button class="tab-btn" onclick="openCategory(event, 'grimorios')">Grimorios (Spellbooks)</button>
+        <button class="tab-btn" onclick="openCategory(event, 'maces')">Maces & Heavy Crushers</button>
+    </div>
 
-    <!-- Daggers Collection Part 3 -->
-    <section class="arsenal-section">
-        <h2>Advanced Daggers & Cleavers (Part 3)</h2>
+    <!-- 1. SWORDS SECTION -->
+    <section id="swords" class="arsenal-section active">
+        <h2>Swords & Blades Collection</h2>
         <div class="weapons-grid">
+            
             <div class="weapon-card">
-                <img src="dagger_9.png" alt="Ornate Dagger">
-                <h3>Ornate Stinger</h3>
-                <p><strong>Type:</strong> Rare Dagger</p>
-                <p><strong>Power:</strong> 44 Attack</p>
-                <p><strong>Ability:</strong> Infuses fine magical piercing into enemy defenses.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_all_seeing_cleaver.png" alt="All-Seeing Cleaver">
-                <h3>All-Seeing Cleaver</h3>
-                <p><strong>Type:</strong> Unique Cleaver</p>
-                <p><strong>Power:</strong> 52 Attack</p>
-                <p><strong>Ability:</strong> Reveals enemy weak spots and inflicts heavy bleeding.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_chess_pawn_B.png" alt="Chess Pawn B">
-                <h3>Pawn's Shield Blade</h3>
-                <p><strong>Type:</strong> Unique</p>
-                <p><strong>Power:</strong> 39 Attack</p>
-                <p><strong>Ability:</strong> Provides a minor defensive guard boost while slashing.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_cthulhu.png" alt="Cthulhu Dagger">
-                <h3>Cthulhu's Grasp</h3>
-                <p><strong>Type:</strong> Eldritch</p>
-                <p><strong>Power:</strong> 58 Attack</p>
-                <p><strong>Ability:</strong> Channels cosmic horror to drain life force from targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dual_poison.png" alt="Dual Poison Daggers">
-                <h3>Dual Venom Blades</h3>
-                <p><strong>Type:</strong> Dual Poison</p>
-                <p><strong>Power:</strong> 46 Attack</p>
-                <p><strong>Ability:</strong> Fast twin strikes that rapidly stack poison status effects.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_frost.png" alt="Frost Dagger">
-                <h3>Glacial Spike</h3>
-                <p><strong>Type:</strong> Ice / Water</p>
-                <p><strong>Power:</strong> 43 Attack</p>
-                <p><strong>Ability:</strong> Chills enemies on contact, freezing their movement temporarily.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_snake.png" alt="Snake Dagger">
-                <h3>Serpent Blade</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 41 Attack</p>
-                <p><strong>Ability:</strong> Coils venom around the blade for sustained toxin damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_snake_black_mamba.png" alt="Black Mamba Dual Dagger">
-                <h3>Black Mamba Twin</h3>
-                <p><strong>Type:</strong> Dual Lethal</p>
-                <p><strong>Power:</strong> 54 Attack</p>
-                <p><strong>Ability:</strong> Deadly dual-wielding strike with a lethal venom finish.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_survival_dual.png" alt="Survival Dual Dagger">
-                <h3>Wasteland Dual</h3>
-                <p><strong>Type:</strong> Dual Survivor</p>
-                <p><strong>Power:</strong> 37 Attack</p>
-                <p><strong>Ability:</strong> Rugged twin blades optimized for harsh survival conditions.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_survivor.png" alt="Survivor Dagger">
-                <h3>Survivor's Shiv</h3>
-                <p><strong>Type:</strong> Rusted</p>
-                <p><strong>Power:</strong> 26 Attack</p>
-                <p><strong>Ability:</strong> A trusty makeshift weapon found in the ruins.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shurikens Collection Part 4 -->
-    <section class="arsenal-section">
-        <h2>Shurikens Collection (Part 4)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="shuriken_earth.png" alt="Earth Shuriken">
-                <h3>Nature Shuriken</h3>
-                <p><strong>Type:</strong> Earth / Poison</p>
-                <p><strong>Power:</strong> 32 Attack</p>
-                <p><strong>Ability:</strong> Spins through air and releases toxic earthy spores on impact.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_fire.png" alt="Fire Shuriken">
-                <h3>Flame Shuriken</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 38 Attack</p>
-                <p><strong>Ability:</strong> Leaves a burning trail of fire behind as it spins towards targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_light.png" alt="Light Shuriken">
-                <h3>Solar Star</h3>
-                <p><strong>Type:</strong> Light / Holy</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Shines with holy radiance, blinding nearby enemies upon hit.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_water.png" alt="Water Shuriken">
-                <h3>Frost Shuriken</h3>
-                <p><strong>Type:</strong> Water / Ice</p>
-                <p><strong>Power:</strong> 35 Attack</p>
-                <p><strong>Ability:</strong> Pierces targets with freezing winds, slowing their attacks.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special & Event Blades Part 5 -->
-    <section class="arsenal-section">
-        <h2>Special & Event Blades (Part 5)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_water_dual.png" alt="Dual Water Daggers">
-                <h3>Tidal Twin Blades</h3>
-                <p><strong>Type:</strong> Dual Water / Ice</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Dual blades imbued with freezing tides that slow opponents on hit.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="easter-dagger-mini.png" alt="Easter Dagger">
-                <h3>Easter Crystal Dagger</h3>
+                <img src="easter-dagger.png" alt="Carrot Dagger">
+                <h3>Carrot Dagger</h3>
                 <p><strong>Type:</strong> Event / Holy</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Festive event weapon radiating bright holy light and bonus experience.</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> Festive event weapon styled like a glowing golden carrot with a light-blue ribbon.</p>
             </div>
+            <div class="weapon-card">
+                <img src="easter-sword.png" alt="Bunny Crystal Sword">
+                <h3>Bunny Crystal Sword</h3>
+                <p><strong>Type:</strong> Event / Magic</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Sparkling pastel blade with bunny ear guards that radiates festive magical energy.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_0.png" alt="Iron Shortsword">
+                <h3>Iron Shortsword</h3>
+                <p><strong>Type:</strong> Sword</p>
+                <p><strong>Power:</strong> 15 Attack</p>
+                <p><strong>Ability:</strong> Standard trusty blade for early-game melee combat and swift slashing.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_1.png" alt="Steel Broadsword">
+                <h3>Steel Broadsword</h3>
+                <p><strong>Type:</strong> Heavy Sword</p>
+                <p><strong>Power:</strong> 24 Attack</p>
+                <p><strong>Ability:</strong> Wider blade designed to deliver heavier impact blows against armored foes.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_2.png" alt="Gilded Guard Sword">
+                <h3>Gilded Guard Sword</h3>
+                <p><strong>Type:</strong> Elite Sword</p>
+                <p><strong>Power:</strong> 32 Attack</p>
+                <p><strong>Ability:</strong> Balanced blade featuring a prominent golden hilt for enhanced critical strike chance.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_3.png" alt="Desert Sabre">
+                <h3>Desert Sabre</h3>
+                <p><strong>Type:</strong> Sabre / Cutlass</p>
+                <p><strong>Power:</strong> 28 Attack</p>
+                <p><strong>Ability:</strong> Fast slicing curved blade with a gold-wrapped handle for rapid combo slashes.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_4.png" alt="Abyssal Shadow Blade">
+                <h3>Abyssal Shadow Blade</h3>
+                <p><strong>Type:</strong> Dark Magic</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> Forged in darkness with jagged edges and a glowing red core that drains life force.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_5.png" alt="Standard Iron Dagger">
+                <h3>Standard Iron Dagger</h3>
+                <p><strong>Type:</strong> Shortsword</p>
+                <p><strong>Power:</strong> 16 Attack</p>
+                <p><strong>Ability:</strong> Compact and lightweight blade for fast, agile thrusts and basic defense.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_6.png" alt="Golden-Hilted Shortsword">
+                <h3>Golden-Hilted Shortsword</h3>
+                <p><strong>Type:</strong> Elite Sword</p>
+                <p><strong>Power:</strong> 22 Attack</p>
+                <p><strong>Ability:</strong> Features a polished golden guard and pommel for improved durability and prestige.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_7.png" alt="Mercenary's Stiletto">
+                <h3>Mercenary's Stiletto</h3>
+                <p><strong>Type:</strong> Dagger / Pierce</p>
+                <p><strong>Power:</strong> 25 Attack</p>
+                <p><strong>Ability:</strong> Sleek tapered blade designed to pierce armor gaps with deadly precision.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_8.png" alt="Demon-Crested Blade">
+                <h3>Demon-Crested Blade</h3>
+                <p><strong>Type:</strong> Dark Magic / Sword</p>
+                <p><strong>Power:</strong> 54 Attack</p>
+                <p><strong>Ability:</strong> An ornate demonic hilt with a crimson jewel that imbues strikes with dark energy.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_9.png" alt="Crimson Eyeball Saber">
+                <h3>Crimson Eyeball Saber</h3>
+                <p><strong>Type:</strong> Monster / Curse</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> A living red curved blade featuring an ominous watching eye that terrifies opponents.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_10.png" alt="Silver Eyeball Saber">
+                <h3>Silver Eyeball Saber</h3>
+                <p><strong>Type:</strong> Monster / Magic</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Steel variant of the living blade with a glowing red pupil that cuts through defenses.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_11.png" alt="Neon Green Plasma Saber">
+                <h3>Neon Green Plasma Saber</h3>
+                <p><strong>Type:</strong> Sci-Fi / Energy</p>
+                <p><strong>Power:</strong> 65 Attack</p>
+                <p><strong>Ability:</strong> Emits a glowing high-frequency green energy beam that slices cleanly through almost any material.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_12.png" alt="Tidal Bubble Blade">
+                <h3>Tidal Bubble Blade</h3>
+                <p><strong>Type:</strong> Water / Magic</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Infused with pressurized deep-sea fluid and magical bubbles to deal hydrodynamic damage.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_13.png" alt="Azure Crystal Blade">
+                <h3>Azure Crystal Blade</h3>
+                <p><strong>Type:</strong> Magic / Crystal</p>
+                <p><strong>Power:</strong> 55 Attack</p>
+                <p><strong>Ability:</strong> Radiates shimmering crystalline energy with ethereal wings, dealing high magical pierce damage.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_14.png" alt="Wasteland Steel Sword">
+                <h3>Wasteland Steel Sword</h3>
+                <p><strong>Type:</strong> Heavy Sword</p>
+                <p><strong>Power:</strong> 30 Attack</p>
+                <p><strong>Ability:</strong> A rugged, dark-iron blade forged for survival in harsh underground environments.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_15.png" alt="Ancient Stone Greatsword">
+                <h3>Ancient Stone Greatsword</h3>
+                <p><strong>Type:</strong> Earth / Heavy</p>
+                <p><strong>Power:</strong> 35 Attack</p>
+                <p><strong>Ability:</strong> Carved from ancient weathered stone, delivering heavy crushing blows to enemy armor.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_all_seeing.png" alt="Infernal All-Seeing Blade">
+                <h3>Infernal All-Seeing Blade</h3>
+                <p><strong>Type:</strong> Dark / Unique</p>
+                <p><strong>Power:</strong> 62 Attack</p>
+                <p><strong>Ability:</strong> Topped with a horned demon skull and a watchful glowing eye that exposes enemy weak points.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_chess_king_A.png" alt="King's Red Gambit Sword">
+                <h3>King's Red Gambit Sword</h3>
+                <p><strong>Type:</strong> Unique / Royal</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> A strategic royal weapon embedded with a red gem, commanding high tactical advantage and critical strikes.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_chess_king_B.png" alt="King's Blue Gambit Sword">
+                <h3>King's Blue Gambit Sword</h3>
+                <p><strong>Type:</strong> Unique / Royal</p>
+                <p><strong>Power:</strong> 60 Attack</p>
+                <p><strong>Ability:</strong> Royal strategic blade featuring a dark orb and blue crystal hilt, boosting magical defense.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_cthulhu.png" alt="Eldritch Acid Blade">
+                <h3>Eldritch Acid Blade</h3>
+                <p><strong>Type:</strong> Eldritch / Poison</p>
+                <p><strong>Power:</strong> 56 Attack</p>
+                <p><strong>Ability:</strong> Imbued with cosmic horror and dripping acidic green slime that melts enemy armor over time.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_dummy.png" alt="Practice Dummy Blade">
+                <h3>Practice Dummy Blade</h3>
+                <p><strong>Type:</strong> Training / Practice</p>
+                <p><strong>Power:</strong> 10 Attack</p>
+                <p><strong>Ability:</strong> A dull grayscale training sword used strictly for basic combat drills and testing attacks.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_frostheart.png" alt="Frostheart Glacial Blade">
+                <h3>Frostheart Glacial Blade</h3>
+                <p><strong>Type:</strong> Ice / Magic</p>
+                <p><strong>Power:</strong> 60 Attack</p>
+                <p><strong>Ability:</strong> A jagged blade forged from eternal blue ice that freezes enemies solid upon impact.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_glass_0.png" alt="Crimson Glass Greatsword">
+                <h3>Crimson Glass Greatsword</h3>
+                <p><strong>Type:</strong> Glass / Magic</p>
+                <p><strong>Power:</strong> 45 Attack</p>
+                <p><strong>Ability:</strong> Translucent red-and-green tinted glass blade channeling fragile yet explosive kinetic energy.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_glass_1.png" alt="Golden Shimmer Glass Blade">
+                <h3>Golden Shimmer Glass Blade</h3>
+                <p><strong>Type:</strong> Glass / Light</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> Shimmering yellow crystalline glass sword with ornate golden wings for high critical hits.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_glass_2.png" alt="Rose Quartz Glass Blade">
+                <h3>Rose Quartz Glass Blade</h3>
+                <p><strong>Type:</strong> Glass / Magic</p>
+                <p><strong>Power:</strong> 46 Attack</p>
+                <p><strong>Ability:</strong> Features a glowing emerald center embedded in a polished pink glass structure.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_glass_3.png" alt="Enchanted Purple Glass Sword">
+                <h3>Enchanted Purple Glass Sword</h3>
+                <p><strong>Type:</strong> Glass / Arcane</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Inscribed with mysterious glowing runic symbols along a translucent purple crystal edge.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_glass_4.png" alt="Rough Pink Crystal Shard">
+                <h3>Rough Pink Crystal Shard</h3>
+                <p><strong>Type:</strong> Crystal / Earth</p>
+                <p><strong>Power:</strong> 44 Attack</p>
+                <p><strong>Ability:</strong> A jagged, unprocessed pink crystal blade that tears through enemy defenses with jagged cuts.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_ice_claw.png" alt="Glacial Claw Blade">
+                <h3>Glacial Claw Blade</h3>
+                <p><strong>Type:</strong> Ice / Frost</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Shaped like razor-sharp frozen claws, chilling targets and slowing down their movement speed.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_kraken.png" alt="Abyssal Kraken Claw">
+                <h3>Abyssal Kraken Claw</h3>
+                <p><strong>Type:</strong> Monster / Water</p>
+                <p><strong>Power:</strong> 57 Attack</p>
+                <p><strong>Ability:</strong> A spiked crustacean pincer blade featuring a watchful yellow eye that summons tidal pressure.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_poison_blade.png" alt="Venomous Shimmer Dagger">
+                <h3>Venomous Shimmer Dagger</h3>
+                <p><strong>Type:</strong> Poison / Arcane</p>
+                <p><strong>Power:</strong> 53 Attack</p>
+                <p><strong>Ability:</strong> A glowing green toxic blade wrapped in dark energy, inflicting lingering venom status on enemies.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_snake.png" alt="Serpentine Viper Saber">
+                <h3>Serpentine Viper Saber</h3>
+                <p><strong>Type:</strong> Poison / Sword</p>
+                <p><strong>Power:</strong> 47 Attack</p>
+                <p><strong>Ability:</strong> A curved sabre stained with toxic green venom, designed for lightning-fast sweeping poison strikes.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_spider.png" alt="Black Widow Greatsword">
+                <h3>Black Widow Greatsword</h3>
+                <p><strong>Type:</strong> Venom / Dark</p>
+                <p><strong>Power:</strong> 59 Attack</p>
+                <p><strong>Ability:</strong> Features a menacing spider emblem on a black-and-red crossguard, injecting paralyzing spider toxin.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_survivor.png" alt="Wasteland Heavy Cleaver">
+                <h3>Wasteland Heavy Cleaver</h3>
+                <p><strong>Type:</strong> Survivor / Heavy</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> A rugged, rivet-studded iron blade weathered by harsh battles, delivering heavy blunt-edged cuts.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_survivor_short.png" alt="Bound Wasteland Shortsword">
+                <h3>Bound Wasteland Shortsword</h3>
+                <p><strong>Type:</strong> Survivor / Dagger</p>
+                <p><strong>Power:</strong> 36 Attack</p>
+                <p><strong>Ability:</strong> A compact metal blade wrapped tightly in leather straps and twine, built for scrappy close combat.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_treasure_broad.png" alt="Gilded Treasure Broadsword">
+                <h3>Gilded Treasure Broadsword</h3>
+                <p><strong>Type:</strong> Treasure / Elite</p>
+                <p><strong>Power:</strong> 61 Attack</p>
+                <p><strong>Ability:</strong> An ornate golden broadsword embedded with a ruby gem, increasing coin drops and critical hit chance.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_treasure_skewer.png" alt="Gilded Royal Rapier">
+                <h3>Gilded Royal Rapier</h3>
+                <p><strong>Type:</strong> Treasure / Pierce</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> A sleek golden thrusting rapier with a blue gemstone hilt for rapid armor-piercing stabs.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="sword_volcano.png" alt="Infernal Volcanic Greatsword">
+                <h3>Infernal Volcanic Greatsword</h3>
+                <p><strong>Type:</strong> Fire / Heavy</p>
+                <p><strong>Power:</strong> 64 Attack</p>
+                <p><strong>Ability:</strong> A heavy obsidian blade cracked with glowing molten lava, scorching enemies with intense fire bursts.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. GRIMORIOS (SPELLBOOKS) SECTION -->
+    <section id="grimorios" class="arsenal-section">
+        <h2>Grimorios & Arcane Tomes Collection</h2>
+        <div class="weapons-grid">
+            
+            <div class="weapon-card">
+                <img src="spellbook_1.png" alt="Apprentice Tome">
+                <h3>Apprentice Tome</h3>
+                <p><strong>Type:</strong> Magic Book</p>
+                <p><strong>Power:</strong> 18 Attack</p>
+                <p><strong>Ability:</strong> Contains basic introductory spells to channel novice arcane energy.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_2.png" alt="Spider Venom Grimoire">
+                <h3>Spider Venom Grimoire</h3>
+                <p><strong>Type:</strong> Dark / Poison</p>
+                <p><strong>Power:</strong> 46 Attack</p>
+                <p><strong>Ability:</strong> Radiates a sinister red glow, summoning toxic spiders and venomous web projectiles.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_air.png" alt="Tome of Zephyr Winds">
+                <h3>Tome of Zephyr Winds</h3>
+                <p><strong>Type:</strong> Wind / Air</p>
+                <p><strong>Power:</strong> 44 Attack</p>
+                <p><strong>Ability:</strong> Bound in turquoise leather, unleashing swift gale-force winds and atmospheric shockwaves.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_anubis.png" alt="Scarab Codex of Anubis">
+                <h3>Scarab Codex of Anubis</h3>
+                <p><strong>Type:</strong> Ancient / Holy</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Inscribed with golden scarabs, invoking desert curses and ancient protective magic.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_dark.png" alt="Grimoire of Abyssal Shadows">
+                <h3>Grimoire of Abyssal Shadows</h3>
+                <p><strong>Type:</strong> Dark Magic</p>
+                <p><strong>Power:</strong> 55 Attack</p>
+                <p><strong>Ability:</strong> Pulsates with purple energy and a grinning skull seal, firing piercing dark bolts.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_earth.png" alt="Verdant Codex of Roots">
+                <h3>Verdant Codex of Roots</h3>
+                <p><strong>Type:</strong> Earth / Nature</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> Secured with sturdy wooden straps, casting thorny vines and earthy projectiles.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_fire.png" alt="Infernal Tome of Flames">
+                <h3>Infernal Tome of Flames</h3>
+                <p><strong>Type:</strong> Fire Magic</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Features a glowing fiery eye emblem that launches explosive fireballs and burning embers.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_light.png" alt="Codex of Radiant Sunbeams">
+                <h3>Codex of Radiant Sunbeams</h3>
+                <p><strong>Type:</strong> Holy / Light</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> Radiates brilliant golden sunlight, highly effective at banishing dark creatures and undead.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_necro.png" alt="Cursed Tome of the Undead">
+                <h3>Cursed Tome of the Undead</h3>
+                <p><strong>Type:</strong> Necromancy</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> A living screaming face tome that drains enemy life force and raises dark spirits.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="spellbook_water.png" alt="Glacial Tome of Tides">
+                <h3>Glacial Tome of Tides</h3>
+                <p><strong>Type:</strong> Water / Ice</p>
+                <p><strong>Power:</strong> 47 Attack</p>
+                <p><strong>Ability:</strong> Braced with frost-blue vials, firing pressurized water jets and freezing icicles.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. MACES SECTION -->
+    <section id="maces" class="arsenal-section">
+        <h2>Maces & Heavy Crushers Collection</h2>
+        <div class="weapons-grid">
+            
+            <div class="weapon-card">
+                <img src="mace_0.png" alt="Standard Spiked Mace">
+                <h3>Standard Spiked Mace</h3>
+                <p><strong>Type:</strong> Heavy Mace</p>
+                <p><strong>Power:</strong> 20 Attack</p>
+                <p><strong>Ability:</strong> A classic iron sphere embedded with sharp spikes, delivering brutal crushing impact.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="mace_1.png" alt="Ancient Stone Crusher">
+                <h3>Ancient Stone Crusher</h3>
+                <p><strong>Type:</strong> Earth / Heavy</p>
+                <p><strong>Power:</strong> 38 Attack</p>
+                <p><strong>Ability:</strong> Carved from heavy weathered stone with diamond studs to break through enemy armor easily.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="mace_2.png" alt="Studded Wooden Club">
+                <h3>Studded Wooden Club</h3>
+                <p><strong>Type:</strong> Club / Melee</p>
+                <p><strong>Power:</strong> 25 Attack</p>
+                <p><strong>Ability:</strong> A sturdy wooden bat reinforced with metal studs, great for heavy blunt-force strikes.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="mace_poison.png" alt="Venomous Acid Mace">
+                <h3>Venomous Acid Mace</h3>
+                <p><strong>Type:</strong> Poison / Magic</p>
+                <p><strong>Power:</strong> 54 Attack</p>
+                <p><strong>Ability:</strong> A glowing green toxic orb encased in dark metal that splashes corrosive venom upon impact.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="mace_treasure.png" alt="Gilded Royal Mace">
+                <h3>Gilded Royal Mace</h3>
+                <p><strong>Type:</strong> Treasure / Elite</p>
+                <p><strong>Power:</strong> 60 Attack</p>
+                <p><strong>Ability:</strong> An ornate golden mace embedded with blue sapphires, boosting critical damage and coin drops.</p>
+            </div>
+            <div class="weapon-card">
+                <img src="wooden_hawaiian.png" alt="Hawaiian Wooden Sandal">
+                <h3>Hawaiian Wooden Sandal</h3>
+                <p><strong>Type:</strong> Meme / Unique</p>
+                <p><strong>Power:</strong> 30 Attack</p>
+                <p><strong>Ability:</strong> A legendary wooden slipper shaped like a sandal, striking fear into the hearts of all foes!</p>
+            </div>
+
         </div>
     </section>
 
