@@ -4,346 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Void-Rampagers Wiki - Staffs Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #0b0c10;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
 
-        .arsenal-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .arsenal-section h2 {
-            font-family: 'Cinzel', serif;
-            color: #eab308;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
-        }
-
-        .weapons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .weapon-card {
-            background: #14161f;
-            border: 1px solid rgba(234, 179, 8, 0.25);
-            border-radius: 10px;
-            padding: 15px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-        }
-
-        .weapon-card:hover {
-            transform: translateY(-5px);
-            border-color: #eab308;
-            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.2);
-        }
-
-        .weapon-card img {
-            width: 64px;
-            height: 64px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            align-self: center;
-            image-rendering: pixelated;
-        }
-
-        .weapon-card h3 {
-            color: #fff;
-            font-size: 1rem;
-            margin: 5px 0 10px 0;
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            width: 100%;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 5px;
-        }
-
-        .weapon-card p {
-            color: #94a3b8;
-            font-size: 0.8rem;
-            margin: 4px 0;
-            width: 100%;
-        }
-
-        .weapon-card strong {
-            color: #eab308;
-        }
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #a855f7; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #eab308; font-size: 2.2rem; margin-bottom: 30px; text-shadow: 0 0 15px rgba(234, 179, 8, 0.35); }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px; padding: 18px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: left; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #eab308; box-shadow: 0 8px 20px rgba(234, 179, 8, 0.25); }
+        .weapon-card img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 12px; image-rendering: pixelated; }
+        .weapon-card h3 { color: #fff; font-size: 1rem; margin: 5px 0 10px 0; font-family: 'Cinzel', serif; text-align: center; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; }
+        .weapon-card p { color: #94a3b8; font-size: 0.82rem; margin: 4px 0; width: 100%; line-height: 1.4; }
+        .weapon-card strong { color: #eab308; }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
+
     <section class="arsenal-section">
-        <h2>Staffs & Magical Rods Collection</h2>
+        <a href="arsenal.html" class="back-btn">← Back to Arsenal Categories</a>
+        <h2>Magic Staffs Collection</h2>
         <div class="weapons-grid">
-            
-            <!-- Basic & Standard Staffs -->
-            <div class="weapon-card">
-                <img src="staff_0.png" alt="Basic Staff">
-                <h3>Apprentice Orb Staff</h3>
-                <p><strong>Type:</strong> Magic Staff</p>
-                <p><strong>Power:</strong> 15 Attack</p>
-                <p><strong>Ability:</strong> Channels basic magical energy to fire small arcane projectiles.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_1.png" alt="Wooden Staff">
-                <h3>Gnarled Wooden Rod</h3>
-                <p><strong>Type:</strong> Primitive Staff</p>
-                <p><strong>Power:</strong> 12 Attack</p>
-                <p><strong>Ability:</strong> A simple banded branch used by novice spellcasters in early battles.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_1b.png" alt="Wrapped Wooden Staff">
-                <h3>Bound Timber Staff</h3>
-                <p><strong>Type:</strong> Primitive Staff</p>
-                <p><strong>Power:</strong> 14 Attack</p>
-                <p><strong>Ability:</strong> Reinforced with cloth wrappings for better grip and spell focus.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_3.png" alt="Skull Bone Staff">
-                <h3>Necromancer's Skull Staff</h3>
-                <p><strong>Type:</strong> Dark Magic</p>
-                <p><strong>Power:</strong> 42 Attack</p>
-                <p><strong>Ability:</strong> Topped with a spiked skull that shoots dark energy bolts and drains life.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_4.png" alt="Holy Sun Staff">
-                <h3>Solar Cross Wand</h3>
-                <p><strong>Type:</strong> Holy Magic</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Radiates divine sunlight, effective against undead and dark monsters.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_5.png" alt="Crystal Gold Staff">
-                <h3>Gilded Crystal Scepter</h3>
-                <p><strong>Type:</strong> Elite Magic</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Crafted from pure gold and topped with a glowing mana crystal for high spell damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_6.png" alt="Scythe Staff">
-                <h3>Reaper's Curved Staff</h3>
-                <p><strong>Type:</strong> Dark / Melee Staff</p>
-                <p><strong>Power:</strong> 38 Attack</p>
-                <p><strong>Ability:</strong> A hooked scythe-topped staff allowing both sweeping melee and magical cuts.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_7.png" alt="Magma Staff">
-                <h3>Volcanic Crown Staff</h3>
-                <p><strong>Type:</strong> Fire Magic</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Unleashes devastating magma shockwaves and burns enemies to ashes.</p>
-            </div>
-
-            <!-- Advanced & Elemental Staffs -->
-            <div class="weapon-card">
-                <img src="staff_9.png" alt="Horned Skull Staff">
-                <h3>Demon Horn Staff</h3>
-                <p><strong>Type:</strong> Dark Magic</p>
-                <p><strong>Power:</strong> 52 Attack</p>
-                <p><strong>Ability:</strong> Channels demonic energies through spiked horns to fire explosive dark bolts.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_10.png" alt="Dragon Blue Orb Staff">
-                <h3>Azure Dragon Scepter</h3>
-                <p><strong>Type:</strong> Elemental Magic</p>
-                <p><strong>Power:</strong> 55 Attack</p>
-                <p><strong>Ability:</strong> Topped with a glowing blue orb wrapped by a dragon wing, boosting elemental spell damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_11.png" alt="Dragon Red Orb Staff">
-                <h3>Crimson Dragon Rod</h3>
-                <p><strong>Type:</strong> Fire Magic</p>
-                <p><strong>Power:</strong> 58 Attack</p>
-                <p><strong>Ability:</strong> Features a fiery red orb cradled by ruby dragon wings, scorching foes on contact.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_12.png" alt="Ice Trident Staff">
-                <h3>Glacial Trident Wand</h3>
-                <p><strong>Type:</strong> Water / Ice</p>
-                <p><strong>Power:</strong> 49 Attack</p>
-                <p><strong>Ability:</strong> Fires triple-pronged frost shards that freeze enemies in their tracks.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_13.png" alt="Golden Dragon Staff">
-                <h3>Gilded Dragon Scepter</h3>
-                <p><strong>Type:</strong> Elite Magic</p>
-                <p><strong>Power:</strong> 60 Attack</p>
-                <p><strong>Ability:</strong> An ancient golden staff infused with supreme dragon magic for massive arcane bursts.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_2022_2.png" alt="Horned Shaman Staff">
-                <h3>Tribal Horned Totem</h3>
-                <p><strong>Type:</strong> Primitive Magic</p>
-                <p><strong>Power:</strong> 44 Attack</p>
-                <p><strong>Ability:</strong> Decorated with colorful tribal feathers and a ram skull to cast ancestral hexes.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_2022_3.png" alt="Cosmic Purple Dragon Staff">
-                <h3>Nebula Dragon Staff</h3>
-                <p><strong>Type:</strong> Void Magic</p>
-                <p><strong>Power:</strong> 64 Attack</p>
-                <p><strong>Ability:</strong> Shimmers with cosmic purple energy, tearing through enemy defenses with void beams.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_air.png" alt="Air Wind Staff">
-                <h3>Zephyr Vortex Wand</h3>
-                <p><strong>Type:</strong> Wind / Air</p>
-                <p><strong>Power:</strong> 46 Attack</p>
-                <p><strong>Ability:</strong> Curved pneumatic staff that summons whirling tornadoes to lift and toss enemies.</p>
-            </div>
-
-            <!-- Alternative Variants & Special Rods -->
-            <div class="weapon-card">
-                <img src="staff_13_2.png" alt="Gilded Dragon Scepter">
-                <h3>Gilded Dragon Scepter (Alt)</h3>
-                <p><strong>Type:</strong> Elite Magic</p>
-                <p><strong>Power:</strong> 61 Attack</p>
-                <p><strong>Ability:</strong> An alternate golden dragon-cradled orb radiating supreme arcane energy.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_2022_2_2.png" alt="Tribal Horned Totem">
-                <h3>Tribal Horned Totem (Alt)</h3>
-                <p><strong>Type:</strong> Primitive Magic</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Enhanced ritualistic ram skull staff decorated with vivid ceremonial feathers.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_2022_3_2.png" alt="Nebula Dragon Staff">
-                <h3>Nebula Dragon Staff (Alt)</h3>
-                <p><strong>Type:</strong> Void Magic</p>
-                <p><strong>Power:</strong> 65 Attack</p>
-                <p><strong>Ability:</strong> Infused with cosmic purple dimensions to unleash devastating void magic.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_air_2.png" alt="Zephyr Vortex Wand">
-                <h3>Zephyr Vortex Wand (Alt)</h3>
-                <p><strong>Type:</strong> Wind / Air</p>
-                <p><strong>Power:</strong> 47 Attack</p>
-                <p><strong>Ability:</strong> Pneumatic turquoise staff channeling swirling air currents to displace foes.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_bone.png" alt="Bone Spine Staff">
-                <h3>Avian Spine Wand</h3>
-                <p><strong>Type:</strong> Necromancy / Bone</p>
-                <p><strong>Power:</strong> 39 Attack</p>
-                <p><strong>Ability:</strong> Crafted from skeletal remains and a bird skull, casting chilling necrotic curses.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_cthulhu.png" alt="Cthulhu Tentacle Staff">
-                <h3>Eldritch Tentacle Rod</h3>
-                <p><strong>Type:</strong> Eldritch Magic</p>
-                <p><strong>Power:</strong> 59 Attack</p>
-                <p><strong>Ability:</strong> Topped with writhing green tentacles and a yellow gem that drives enemies mad.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_darkness.png" alt="Abyssal Darkness Staff">
-                <h3>Shadow Spine Scepter</h3>
-                <p><strong>Type:</strong> Dark Magic</p>
-                <p><strong>Power:</strong> 54 Attack</p>
-                <p><strong>Ability:</strong> Features a grinning dark skull atop a curved spinal column, draining enemy life force.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_dragonhead.png" alt="Magma Dragon Head Staff">
-                <h3>Infernal Dragon Jaw</h3>
-                <p><strong>Type:</strong> Fire Magic</p>
-                <p><strong>Power:</strong> 62 Attack</p>
-                <p><strong>Ability:</strong> Shaped like a ferocious magma dragon head, shooting volatile streams of molten fire.</p>
-            </div>
-
-            <!-- Elemental, Holiday & Special Staffs -->
-            <div class="weapon-card">
-                <img src="staff_earth.png" alt="Earth Staff">
-                <h3>Verdant Vine Staff</h3>
-                <p><strong>Type:</strong> Earth / Nature</p>
-                <p><strong>Power:</strong> 40 Attack</p>
-                <p><strong>Ability:</strong> Wrapped in enchanted vines with a glowing green crystal and daisy flower, launching earthy projectiles.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_fire.png" alt="Fire Staff">
-                <h3>Lantern Flame Wand</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 43 Attack</p>
-                <p><strong>Ability:</strong> Shaped like an antique lantern, casting warm, burning light and scorching fire bursts.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_halloween.png" alt="Halloween Staff">
-                <h3>Witch's Broomstick</h3>
-                <p><strong>Type:</strong> Event / Dark</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> A festive magical broom that sweeps away enemies with spooky kinetic energy.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_ice.png" alt="Ice Staff">
-                <h3>Shard of Glacial Frost</h3>
-                <p><strong>Type:</strong> Water / Ice</p>
-                <p><strong>Power:</strong> 46 Attack</p>
-                <p><strong>Ability:</strong> Carved entirely from jagged magical ice crystals to freeze foes instantly.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_poison.png" alt="Poison Staff">
-                <h3>Venomous Spire Rod</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 42 Attack</p>
-                <p><strong>Ability:</strong> Emits a glowing green acidic aura that infects enemies with continuous venom damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_sea.png" alt="Sea Staff">
-                <h3>Abyssal Sea Serpent Staff</h3>
-                <p><strong>Type:</strong> Water / Magic</p>
-                <p><strong>Power:</strong> 51 Attack</p>
-                <p><strong>Ability:</strong> Coiled by a turquoise sea dragon guarding a glowing blue orb of tidal power.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_spider.png" alt="Spider Staff">
-                <h3>Black Widow Scepter</h3>
-                <p><strong>Type:</strong> Venom / Dark</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Features a menacing purple spider sigil that injects paralyzing venom into targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_stone.png" alt="Stone Staff">
-                <h3>Monolithic Stone Rod</h3>
-                <p><strong>Type:</strong> Earth / Heavy</p>
-                <p><strong>Power:</strong> 39 Attack</p>
-                <p><strong>Ability:</strong> Topped with a heavy carved stone head capable of delivering crushing blunt force.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_survivor.png" alt="Survivor Staff">
-                <h3>Wasteland Circular Smasher</h3>
-                <p><strong>Type:</strong> Survivor / Heavy</p>
-                <p><strong>Power:</strong> 41 Attack</p>
-                <p><strong>Ability:</strong> A rugged wooden rod wrapped in chains with a spinning sawblade head for brutal melee-magic hybrid strikes.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_treasure.png" alt="Treasure Staff">
-                <h3>Gilded Eye Scepter</h3>
-                <p><strong>Type:</strong> Treasure / Elite</p>
-                <p><strong>Power:</strong> 56 Attack</p>
-                <p><strong>Ability:</strong> An ornate golden staff featuring an all-seeing magical eye that fires golden beams and increases loot drops.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="staff_xmas.png" alt="Christmas Staff">
-                <h3>Festive Holiday Wand</h3>
-                <p><strong>Type:</strong> Event / Holy</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Wrapped in candy-cane patterns and holiday ribbons, shooting cheerful snow globes and festive magical sparks.</p>
-            </div>
-
+            <div class="weapon-card"><img src="staff_0.png" alt="Wooden Apprentice Staff"><h3>Wooden Apprentice Staff</h3><p><strong>Type:</strong> Magic Staff</p><p><strong>Power:</strong> 14 Attack</p><p><strong>Ability:</strong> Basic oak staff capable of firing standard arcane energy bolts.</p></div>
+            <div class="weapon-card"><img src="staff_fire.png" alt="Inferno Ruby Staff"><h3>Inferno Ruby Staff</h3><p><strong>Type:</strong> Fire / Staff</p><p><strong>Power:</strong> 48 Attack</p><p><strong>Ability:</strong> Crowned with a blazing ruby that shoots explosive fireballs across rooms.</p></div>
+            <div class="weapon-card"><img src="staff_ice.png" alt="Glacial Frost Staff"><h3>Glacial Frost Staff</h3><p><strong>Type:</strong> Ice / Staff</p><p><strong>Power:</strong> 46 Attack</p><p><strong>Ability:</strong> Channels sub-zero winds to freeze and shatter approaching enemies.</p></div>
+            <div class="weapon-card"><img src="staff_dark.png" alt="Abyssal Skull Staff"><h3>Abyssal Skull Staff</h3><p><strong>Type:</strong> Dark / Necro</p><p><strong>Power:</strong> 56 Attack</p><p><strong>Ability:</strong> Fires piercing shadow skulls that pass through enemy shields.</p></div>
         </div>
     </section>
 
