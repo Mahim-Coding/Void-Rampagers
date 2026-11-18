@@ -3,374 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers Wiki - Arsenal</title>
+    <title>Void-Rampagers Wiki - Daggers Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #0b0c10;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
 
-        .arsenal-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .arsenal-section h2 {
-            font-family: 'Cinzel', serif;
-            color: #eab308;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
-        }
-
-        .weapons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .weapon-card {
-            background: #14161f;
-            border: 1px solid rgba(234, 179, 8, 0.25);
-            border-radius: 10px;
-            padding: 15px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-        }
-
-        .weapon-card:hover {
-            transform: translateY(-5px);
-            border-color: #eab308;
-            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.2);
-        }
-
-        .weapon-card img {
-            width: 64px;
-            height: 64px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            align-self: center;
-            image-rendering: pixelated;
-        }
-
-        .weapon-card h3 {
-            color: #fff;
-            font-size: 1rem;
-            margin: 5px 0 10px 0;
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            width: 100%;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 5px;
-        }
-
-        .weapon-card p {
-            color: #94a3b8;
-            font-size: 0.8rem;
-            margin: 4px 0;
-            width: 100%;
-        }
-
-        .weapon-card strong {
-            color: #eab308;
-        }
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #a855f7; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #eab308; font-size: 2.2rem; margin-bottom: 30px; text-shadow: 0 0 15px rgba(234, 179, 8, 0.35); }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px; padding: 18px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: left; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #eab308; box-shadow: 0 8px 20px rgba(234, 179, 8, 0.25); }
+        .weapon-card img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 12px; image-rendering: pixelated; }
+        .weapon-card h3 { color: #fff; font-size: 1rem; margin: 5px 0 10px 0; font-family: 'Cinzel', serif; text-align: center; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; }
+        .weapon-card p { color: #94a3b8; font-size: 0.82rem; margin: 4px 0; width: 100%; line-height: 1.4; }
+        .weapon-card strong { color: #eab308; }
     </style>
 </head>
 <body>
 
-    <!-- Daggers Collection Part 1 -->
-    <section class="arsenal-section">
-        <h2>Daggers & Blades Collection (Part 1)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_0.png" alt="Basic Dagger">
-                <h3>Basic Dagger</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 12 Attack</p>
-                <p><strong>Ability:</strong> Standard melee slash for early game combat.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_0_plus.png" alt="Enhanced Dagger">
-                <h3>Enhanced Dagger</h3>
-                <p><strong>Type:</strong> Dagger+</p>
-                <p><strong>Power:</strong> 18 Attack</p>
-                <p><strong>Ability:</strong> Upgraded edge with slightly increased critical strike chance.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_1.png" alt="Butcher Cleaver">
-                <h3>Butcher Cleaver</h3>
-                <p><strong>Type:</strong> Dagger / Heavy</p>
-                <p><strong>Power:</strong> 22 Attack</p>
-                <p><strong>Ability:</strong> Deals heavy blunt-cutting damage to close enemies.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_2.png" alt="Curved Blade">
-                <h3>Curved Blade</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 25 Attack</p>
-                <p><strong>Ability:</strong> Faster attack speed and smooth slicing capability.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_3.png" alt="Ninja Kunai">
-                <h3>Ninja Kunai</h3>
-                <p><strong>Type:</strong> Dagger / Thrown</p>
-                <p><strong>Power:</strong> 28 Attack</p>
-                <p><strong>Ability:</strong> Can be thrown quickly with high agility bonus.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_4.png" alt="Venom Dagger">
-                <h3>Venom Dagger</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 30 Attack</p>
-                <p><strong>Ability:</strong> Inflicts toxic poison over time (DoT) damage on targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_5.png" alt="Serpent Fang">
-                <h3>Serpent Fang</h3>
-                <p><strong>Type:</strong> Dagger</p>
-                <p><strong>Power:</strong> 35 Attack</p>
-                <p><strong>Ability:</strong> Pierces through light enemy armor with venomous fangs.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_6.png" alt="Magma Shiv">
-                <h3>Magma Shiv</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 40 Attack</p>
-                <p><strong>Ability:</strong> Burns enemies on hit, dealing extra thermal damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_7.png" alt="Golden Kunai">
-                <h3>Golden Kunai</h3>
-                <p><strong>Type:</strong> Elite</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Grants extra gold drops from defeated enemies.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_8.png" alt="Death's Sting">
-                <h3>Death's Sting</h3>
-                <p><strong>Type:</strong> Dark</p>
-                <p><strong>Power:</strong> 55 Attack</p>
-                <p><strong>Ability:</strong> High critical hit multiplier with dark energy aura.</p>
-            </div>
-        </div>
-    </section>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
 
-    <!-- Daggers Collection Part 2 -->
     <section class="arsenal-section">
-        <h2>Special Daggers & Blades (Part 2)</h2>
+        <a href="arsenal.html" class="back-btn">← Back to Arsenal Categories</a>
+        <h2>Daggers & Throwing Knives Collection</h2>
         <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_bone.png" alt="Bone Dagger">
-                <h3>Bone Shiv</h3>
-                <p><strong>Type:</strong> Primitive</p>
-                <p><strong>Power:</strong> 15 Attack</p>
-                <p><strong>Ability:</strong> Lightweight primitive blade crafted from monster bones.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_chess_pawn_A.png" alt="Chess Dagger">
-                <h3>Pawn's Edge</h3>
-                <p><strong>Type:</strong> Unique</p>
-                <p><strong>Power:</strong> 24 Attack</p>
-                <p><strong>Ability:</strong> Balanced strike styled like a strategic chess piece.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dart.png" alt="Shadow Dart">
-                <h3>Shadow Dart</h3>
-                <p><strong>Type:</strong> Thrown</p>
-                <p><strong>Power:</strong> 20 Attack</p>
-                <p><strong>Ability:</strong> Swift projectile for silent ranged punctures.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dual_bone.png" alt="Dual Bone Dagger">
-                <h3>Twin Bone Daggers</h3>
-                <p><strong>Type:</strong> Dual</p>
-                <p><strong>Power:</strong> 32 Attack</p>
-                <p><strong>Ability:</strong> Dual-wielded bone blades for rapid combo attacks.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_poison.png" alt="Toxic Blade">
-                <h3>Toxic Stinger</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 38 Attack</p>
-                <p><strong>Ability:</strong> Dripping with acid that eats away at enemy health.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_rogue.png" alt="Rogue Dagger">
-                <h3>Rogue's Flame</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 42 Attack</p>
-                <p><strong>Ability:</strong> Ignites enemies with a fiery sneak-attack edge.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_spider.png" alt="Spider Dagger">
-                <h3>Black Widow</h3>
-                <p><strong>Type:</strong> Venom</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Injects paralytic venom slowing down opponents.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_steel.png" alt="Steel Dagger">
-                <h3>Reinforced Steel</h3>
-                <p><strong>Type:</strong> Steel</p>
-                <p><strong>Power:</strong> 36 Attack</p>
-                <p><strong>Ability:</strong> Durable steel build offering reliable melee defense.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_treasure.png" alt="Treasure Dagger">
-                <h3>Gilded Relic</h3>
-                <p><strong>Type:</strong> Treasure</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Ancient golden artifact packed with high magical value.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_treasure_dual.png" alt="Treasure Dual Dagger">
-                <h3>Golden Twins</h3>
-                <p><strong>Type:</strong> Dual Treasure</p>
-                <p><strong>Power:</strong> 60 Attack</p>
-                <p><strong>Ability:</strong> Dual golden treasures that maximize loot and damage.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Daggers Collection Part 3 -->
-    <section class="arsenal-section">
-        <h2>Advanced Daggers & Cleavers (Part 3)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_9.png" alt="Ornate Dagger">
-                <h3>Ornate Stinger</h3>
-                <p><strong>Type:</strong> Rare Dagger</p>
-                <p><strong>Power:</strong> 44 Attack</p>
-                <p><strong>Ability:</strong> Infuses fine magical piercing into enemy defenses.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_all_seeing_cleaver.png" alt="All-Seeing Cleaver">
-                <h3>All-Seeing Cleaver</h3>
-                <p><strong>Type:</strong> Unique Cleaver</p>
-                <p><strong>Power:</strong> 52 Attack</p>
-                <p><strong>Ability:</strong> Reveals enemy weak spots and inflicts heavy bleeding.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_chess_pawn_B.png" alt="Chess Pawn B">
-                <h3>Pawn's Shield Blade</h3>
-                <p><strong>Type:</strong> Unique</p>
-                <p><strong>Power:</strong> 39 Attack</p>
-                <p><strong>Ability:</strong> Provides a minor defensive guard boost while slashing.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_cthulhu.png" alt="Cthulhu Dagger">
-                <h3>Cthulhu's Grasp</h3>
-                <p><strong>Type:</strong> Eldritch</p>
-                <p><strong>Power:</strong> 58 Attack</p>
-                <p><strong>Ability:</strong> Channels cosmic horror to drain life force from targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_dual_poison.png" alt="Dual Poison Daggers">
-                <h3>Dual Venom Blades</h3>
-                <p><strong>Type:</strong> Dual Poison</p>
-                <p><strong>Power:</strong> 46 Attack</p>
-                <p><strong>Ability:</strong> Fast twin strikes that rapidly stack poison status effects.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_frost.png" alt="Frost Dagger">
-                <h3>Glacial Spike</h3>
-                <p><strong>Type:</strong> Ice / Water</p>
-                <p><strong>Power:</strong> 43 Attack</p>
-                <p><strong>Ability:</strong> Chills enemies on contact, freezing their movement temporarily.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_snake.png" alt="Snake Dagger">
-                <h3>Serpent Blade</h3>
-                <p><strong>Type:</strong> Poison</p>
-                <p><strong>Power:</strong> 41 Attack</p>
-                <p><strong>Ability:</strong> Coils venom around the blade for sustained toxin damage.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_snake_black_mamba.png" alt="Black Mamba Dual Dagger">
-                <h3>Black Mamba Twin</h3>
-                <p><strong>Type:</strong> Dual Lethal</p>
-                <p><strong>Power:</strong> 54 Attack</p>
-                <p><strong>Ability:</strong> Deadly dual-wielding strike with a lethal venom finish.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_survival_dual.png" alt="Survival Dual Dagger">
-                <h3>Wasteland Dual</h3>
-                <p><strong>Type:</strong> Dual Survivor</p>
-                <p><strong>Power:</strong> 37 Attack</p>
-                <p><strong>Ability:</strong> Rugged twin blades optimized for harsh survival conditions.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="dagger_survivor.png" alt="Survivor Dagger">
-                <h3>Survivor's Shiv</h3>
-                <p><strong>Type:</strong> Rusted</p>
-                <p><strong>Power:</strong> 26 Attack</p>
-                <p><strong>Ability:</strong> A trusty makeshift weapon found in the ruins.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shurikens Collection Part 4 -->
-    <section class="arsenal-section">
-        <h2>Shurikens Collection (Part 4)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="shuriken_earth.png" alt="Earth Shuriken">
-                <h3>Nature Shuriken</h3>
-                <p><strong>Type:</strong> Earth / Poison</p>
-                <p><strong>Power:</strong> 32 Attack</p>
-                <p><strong>Ability:</strong> Spins through air and releases toxic earthy spores on impact.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_fire.png" alt="Fire Shuriken">
-                <h3>Flame Shuriken</h3>
-                <p><strong>Type:</strong> Fire</p>
-                <p><strong>Power:</strong> 38 Attack</p>
-                <p><strong>Ability:</strong> Leaves a burning trail of fire behind as it spins towards targets.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_light.png" alt="Light Shuriken">
-                <h3>Solar Star</h3>
-                <p><strong>Type:</strong> Light / Holy</p>
-                <p><strong>Power:</strong> 45 Attack</p>
-                <p><strong>Ability:</strong> Shines with holy radiance, blinding nearby enemies upon hit.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="shuriken_water.png" alt="Water Shuriken">
-                <h3>Frost Shuriken</h3>
-                <p><strong>Type:</strong> Water / Ice</p>
-                <p><strong>Power:</strong> 35 Attack</p>
-                <p><strong>Ability:</strong> Pierces targets with freezing winds, slowing their attacks.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special & Event Blades Part 5 -->
-    <section class="arsenal-section">
-        <h2>Special & Event Blades (Part 5)</h2>
-        <div class="weapons-grid">
-            <div class="weapon-card">
-                <img src="dagger_water_dual.png" alt="Dual Water Daggers">
-                <h3>Tidal Twin Blades</h3>
-                <p><strong>Type:</strong> Dual Water / Ice</p>
-                <p><strong>Power:</strong> 48 Attack</p>
-                <p><strong>Ability:</strong> Dual blades imbued with freezing tides that slow opponents on hit.</p>
-            </div>
-            <div class="weapon-card">
-                <img src="easter-dagger-mini.png" alt="Easter Dagger">
-                <h3>Easter Crystal Dagger</h3>
-                <p><strong>Type:</strong> Event / Holy</p>
-                <p><strong>Power:</strong> 50 Attack</p>
-                <p><strong>Ability:</strong> Festive event weapon radiating bright holy light and bonus experience.</p>
-            </div>
+            <div class="weapon-card"><img src="dagger_0.png" alt="Iron Hunting Knife"><h3>Iron Hunting Knife</h3><p><strong>Type:</strong> Dagger</p><p><strong>Power:</strong> 14 Attack</p><p><strong>Ability:</strong> Ultra-fast throwing blade ideal for rogues and agile classes.</p></div>
+            <div class="weapon-card"><img src="dagger_poison.png" alt="Viper Fang Dagger"><h3>Viper Fang Dagger</h3><p><strong>Type:</strong> Poison / Dagger</p><p><strong>Power:</strong> 45 Attack</p><p><strong>Ability:</strong> Coated in deadly snake toxin, dealing continuous poison damage over time.</p></div>
+            <div class="weapon-card"><img src="dagger_gold.png" alt="Royal Assassin's Dirk"><h3>Royal Assassin's Dirk</h3><p><strong>Type:</strong> Elite / Pierce</p><p><strong>Power:</strong> 52 Attack</p><p><strong>Ability:</strong> High critical multiplier with rapid fire rate for lethal headshots.</p></div>
+            <div class="weapon-card"><img src="dagger_shadow.png" alt="Nightshade Stiletto"><h3>Nightshade Stiletto</h3><p><strong>Type:</strong> Dark / Dagger</p><p><strong>Power:</strong> 55 Attack</p><p><strong>Ability:</strong> Leaves a trail of dark smoke and pierces through multiple targets.</p></div>
         </div>
     </section>
 
