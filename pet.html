@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers Wiki - Pets & Rings Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #a855f7; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #a855f7; font-size: 2.2rem; margin-bottom: 30px; text-shadow: 0 0 15px rgba(168, 85, 247, 0.35); }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 12px; padding: 20px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: left; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #a855f7; box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25); }
+        
+        .img-container { width: 100vh; max-width: 100%; height: 90px; display: flex; justify-content: center; align-items: center; margin-bottom: 12px; background: rgba(168, 85, 247, 0.05); border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.15); overflow: hidden; position: relative; }
+        
+        /* CSS trick to crop/show only the ring area from the sprite sheet if needed, 
+           or you can use direct images if you crop them separately. 
+           Here standard object-fit is used assuming individual ring files or clean display. */
+        .weapon-card img { max-width: 75px; max-height: 75px; object-fit: contain; image-rendering: pixelated; }
+
+        .weapon-card h3 { color: #fff; font-size: 0.95rem; margin: 5px 0 10px 0; font-family: 'Cinzel', serif; text-align: center; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .weapon-card p { color: #94a3b8; font-size: 0.82rem; margin: 4px 0; width: 100%; line-height: 1.4; }
+        .weapon-card strong { color: #a855f7; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
+
+    <section class="arsenal-section">
+        <a href="arsenal.html" class="back-btn">← Back to Main Arsenal</a>
+        <h2>Pets & Summoning Rings Collection</h2>
+        <div class="weapons-grid">
+            <!-- 1 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_agent.png" alt="Agent Mask Ring"></div>
+                <h3>Ancient Agent Ring</h3>
+                <p><strong>Type:</strong> Summoning / Artifact</p>
+                <p><strong>Ability:</strong> Summons ancient masked gear entities to fight alongside you.</p>
+            </div>
+            <!-- 2 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_arara_grifo.png" alt="Arara Grifo Ring"></div>
+                <h3>Arara Grifo Ring</h3>
+                <p><strong>Type:</strong> Mythical / Pet</p>
+                <p><strong>Ability:</strong> Summons a fierce blue winged griffin companion.</p>
+            </div>
+            <!-- 3 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_ballerina.png" alt="Ballerina Ring"></div>
+                <h3>Ballerina Silhouette Ring</h3>
+                <p><strong>Type:</strong> Grace / Mystic</p>
+                <p><strong>Ability:</strong> Grants swift movement and elegant floating silhouettes.</p>
+            </div>
+            <!-- 4 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_beholder.png" alt="Beholder Ring"></div>
+                <h3>Beholder Eye Ring</h3>
+                <p><strong>Type:</strong> Dark / Gaze</p>
+                <p><strong>Ability:</strong> Summons a spiked floating eye to blast magical projectiles.</p>
+            </div>
+            <!-- 5 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_christmas_2024.png" alt="Christmas Reindeer Ring"></div>
+                <h3>Festive Reindeer Ring</h3>
+                <p><strong>Type:</strong> Event / Holiday</p>
+                <p><strong>Ability:</strong> Summons a glowing holiday reindeer companion.</p>
+            </div>
+            <!-- 6 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_cthulhu.png" alt="Cthulhu Ring"></div>
+                <h3>Cthulhu Cosmic Ring</h3>
+                <p><strong>Type:</strong> Eldritch / Summon</p>
+                <p><strong>Ability:</strong> Unleashes deep-sea cosmic horror entities on enemies.</p>
+            </div>
+            <!-- 7 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_cueio.png" alt="Cueio Bunny Ring"></div>
+                <h3>Cueio Toxic Bunny Ring</h3>
+                <p><strong>Type:</strong> Special / Mutant</p>
+                <p><strong>Ability:</strong> Summons a rabid toxic bunny dealing chaotic damage.</p>
+            </div>
+            <!-- 8 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_demonpider.png" alt="Demon Spider Ring"></div>
+                <h3>Demon Spider Ring</h3>
+                <p><strong>Type:</strong> Dark / Insect</p>
+                <p><strong>Ability:</strong> Summons a horned venomous arachnid companion.</p>
+            </div>
+            <!-- 9 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_dragon.png" alt="Dragon Ring"></div>
+                <h3>Crimson Dragon Ring</h3>
+                <p><strong>Type:</strong> Fire / Mythic</p>
+                <p><strong>Ability:</strong> Summons a fiery miniature dragon breathing scorching flames.</p>
+            </div>
+            <!-- 10 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_easter_2022.png" alt="Easter Bunny 2022 Ring"></div>
+                <h3>Glitter Easter Bunny Ring</h3>
+                <p><strong>Type:</strong> Event / Mystic</p>
+                <p><strong>Ability:</strong> Summons a sparkling carrot-wielding festive rabbit.</p>
+            </div>
+            <!-- 11 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_fenix.png" alt="Phoenix Ring"></div>
+                <h3>Solar Phoenix Ring</h3>
+                <p><strong>Type:</strong> Fire / Holy</p>
+                <p><strong>Ability:</strong> Summons a blazing phoenix bird with rebirth protection.</p>
+            </div>
+            <!-- 12 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_fox_spirit-v2.png" alt="Fox Spirit Ring"></div>
+                <h3>Golden Fox Spirit Ring</h3>
+                <p><strong>Type:</strong> Spirit / Magic</p>
+                <p><strong>Ability:</strong> Summons an agile glowing ethereal fox companion.</p>
+            </div>
+            <!-- 13 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_ghostcat.png" alt="Ghost Cat Ring"></div>
+                <h3>Ethereal Ghost Cat Ring</h3>
+                <p><strong>Type:</strong> Ghost / Mystic</p>
+                <p><strong>Ability:</strong> Summons a silent glowing blue spirit feline.</p>
+            </div>
+            <!-- 14 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_golden_beetle.png" alt="Golden Beetle Ring"></div>
+                <h3>Sacred Golden Beetle Ring</h3>
+                <p><strong>Type:</strong> Treasure / Elite</p>
+                <p><strong>Ability:</strong> Summons a shiny golden scarab boosting coin drops.</p>
+            </div>
+            <!-- 15 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_halloween_2.png" alt="Halloween Pumpkin Ring"></div>
+                <h3>Spooky Pumpkin Candy Ring</h3>
+                <p><strong>Type:</strong> Event / Halloween</p>
+                <p><strong>Ability:</strong> Summons a candy-stuffed grinning pumpkin monster.</p>
+            </div>
+            <!-- 16 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_jellybunny.png" alt="Jelly Bunny Ring"></div>
+                <h3>Pink Jelly Slime Bunny Ring</h3>
+                <p><strong>Type:</strong> Slime / Water</p>
+                <p><strong>Ability:</strong> Summons a bouncy glowing pink jelly rabbit.</p>
+            </div>
+            <!-- 17 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_pixie.png" alt="Pixie Ring"></div>
+                <h3>Emerald Pixie Ring</h3>
+                <p><strong>Type:</strong> Fairy / Light</p>
+                <p><strong>Ability:</strong> Summons a glowing green fairy companion to aid traversal.</p>
+            </div>
+            <!-- 18 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_reidi.png" alt="Reidi Seahorse Ring"></div>
+                <h3>Abyssal Seahorse Ring</h3>
+                <p><strong>Type:</strong> Water / Aquatic</p>
+                <p><strong>Ability:</strong> Summons an armored oceanic seahorse pet.</p>
+            </div>
+            <!-- 19 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_skull.png" alt="Skull Ring"></div>
+                <h3>Phantom Skull Ring</h3>
+                <p><strong>Type:</strong> Undead / Dark</p>
+                <p><strong>Ability:</strong> Summons a floating spectral skull firing dark pulses.</p>
+            </div>
+            <!-- 20 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="pet_travesso.png" alt="Travesso Ghost Ring"></div>
+                <h3>Travesso Spirit Ring</h3>
+                <p><strong>Type:</strong> Ghost / Special</p>
+                <p><strong>Ability:</strong> Summons a masked mischievous spirit companion.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
