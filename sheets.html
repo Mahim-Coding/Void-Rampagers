@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers - Ultra Unique Cyber Sheet</title>
+    <title>Void-Rampagers - Master Database Sheets</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,25 +19,28 @@
         .nav-link:hover { color: #fff; }
         .nav-link.active-pill { background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 6px 14px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
 
-        /* Sheet Top Toolbar (Google Sheets Style with Cyber Vibe) */
-        .toolbar { background: #13141f; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 20px; display: flex; align-items: center; gap: 15px; font-size: 0.85rem; }
+        /* Toolbar */
+        .toolbar { background: #13141f; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; }
         .sheet-title-input { background: transparent; border: 1px solid transparent; color: #fff; font-family: 'Cinzel', serif; font-size: 1.1rem; padding: 4px 8px; border-radius: 4px; outline: none; transition: 0.3s; }
         .sheet-title-input:hover, .sheet-title-input:focus { border-color: rgba(168, 85, 247, 0.5); background: rgba(168, 85, 247, 0.05); }
         
+        .save-status { color: #22c55e; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+
+        /* Formula Bar */
         .formula-bar { background: #14161f; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding: 6px 20px; display: flex; align-items: center; gap: 10px; font-family: 'Fira Code', monospace; font-size: 0.9rem; }
         .cell-indicator { color: #a855f7; font-weight: bold; min-width: 40px; }
         .fx-symbol { color: #94a3b8; font-weight: bold; }
         .formula-input { background: transparent; border: none; color: #fff; width: 100%; outline: none; font-family: 'Fira Code', monospace; }
 
-        /* Spreadsheet Grid Container with Ultra Unique Glow & Animation */
+        /* Spreadsheet Grid Container */
         .grid-container { flex: 1; overflow: auto; position: relative; background: radial-gradient(circle at center, #12131c 0%, #0b0c12 100%); }
         
         table { border-collapse: collapse; width: max-content; table-layout: fixed; }
-        th, td { border: 1px solid rgba(168, 85, 247, 0.15); padding: 0; text-align: left; height: 28px; }
+        th, td { border: 1px solid rgba(168, 85, 247, 0.15); padding: 0; text-align: left; height: 30px; }
         
-        /* Headers (Row numbers & Column letters) */
+        /* Headers */
         th { background: #13141f; color: #a855f7; font-weight: 600; text-align: center; font-size: 0.8rem; user-select: none; position: sticky; z-index: 10; }
-        th.col-header { top: 0; min-width: 110px; }
+        th.col-header { top: 0; min-width: 140px; }
         th.row-header { left: 0; min-width: 50px; z-index: 20; }
         th.corner-header { top: 0; left: 0; z-index: 30; }
 
@@ -45,7 +48,7 @@
         td input { width: 100%; height: 100%; background: transparent; border: none; color: #e2e8f0; padding: 0 8px; font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none; }
         td input:focus { background: rgba(168, 85, 247, 0.12); box-shadow: inset 0 0 0 2px #a855f7; color: #fff; }
 
-        /* Selected Cell Cyber Glow Animation */
+        /* Cyber Glow Animation */
         @keyframes cyberPulse {
             0% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.5), inset 0 0 5px rgba(168, 85, 247, 0.3); }
             50% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.9), inset 0 0 10px rgba(168, 85, 247, 0.6); }
@@ -53,19 +56,17 @@
         }
         td.active-cell { animation: cyberPulse 2s infinite ease-in-out; border: 2px solid #a855f7 !important; background: rgba(168, 85, 247, 0.15); }
 
-        /* Bottom Sheet Tabs */
+        /* Footer Tabs */
         .sheet-footer { background: #13141f; border-top: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; }
         .tabs-container { display: flex; gap: 5px; }
         .sheet-tab { background: #1a1c29; border: 1px solid rgba(168, 85, 247, 0.3); color: #a855f7; padding: 4px 16px; border-radius: 4px 4px 0 0; cursor: pointer; transition: 0.3s; font-weight: 500; }
         .sheet-tab.active { background: #0b0c12; border-bottom: 2px solid #a855f7; color: #fff; box-shadow: 0 -4px 10px rgba(168, 85, 247, 0.2); }
-        .add-sheet-btn { background: transparent; border: 1px dashed rgba(168, 85, 247, 0.4); color: #a855f7; padding: 4px 12px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
-        .add-sheet-btn:hover { background: rgba(168, 85, 247, 0.1); color: #fff; }
+        .clear-btn { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; padding: 4px 12px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .clear-btn:hover { background: rgba(239, 68, 68, 0.4); color: #fff; }
 
-        /* Custom Scrollbars */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #0b0c12; }
         ::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.3); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(168, 85, 247, 0.6); }
     </style>
 </head>
 <body>
@@ -79,22 +80,22 @@
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="arsenal.html" class="nav-link">Arsenal</a></li>
-            <li><a href="spreadsheet.html" class="nav-link active-pill">📊 Cyber Sheets</a></li>
+            <li><a href="sheets.html" class="nav-link active-pill">📊 Master Sheets</a></li>
             <li><a href="settings.html" class="nav-link">Settings</a></li>
         </ul>
     </nav>
 
     <!-- Toolbar -->
     <div class="toolbar">
-        <input type="text" class="sheet-title-input" value="Void_Rampagers_Wiki_Database">
-        <span style="color: #94a3b8; font-size: 0.8rem;">| ✨ Auto-Sync Active</span>
+        <input type="text" class="sheet-title-input" value="Void_Rampagers_Items_Database">
+        <div class="save-status" id="saveStatus">💾 Changes Saved to Web</div>
     </div>
 
     <!-- Formula Bar -->
     <div class="formula-bar">
         <span class="cell-indicator" id="selectedCellLabel">A1</span>
         <span class="fx-symbol">ƒx</span>
-        <input type="text" class="formula-input" id="formulaInput" placeholder="Enter value or formula...">
+        <input type="text" class="formula-input" id="formulaInput" placeholder="Type value to edit cell...">
     </div>
 
     <!-- Spreadsheet Grid Area -->
@@ -103,11 +104,9 @@
             <thead>
                 <tr>
                     <th class="corner-header"></th>
-                    <!-- Columns A to Z will be generated via JS -->
                 </tr>
             </thead>
             <tbody>
-                <!-- Rows 1 to 100 will be generated via JS -->
             </tbody>
         </table>
     </div>
@@ -115,12 +114,9 @@
     <!-- Footer Tabs -->
     <div class="sheet-footer">
         <div class="tabs-container">
-            <div class="sheet-tab active">Weapons Database</div>
-            <div class="sheet-tab">Pets & Rings</div>
-            <div class="sheet-tab">Armor Stats</div>
-            <button class="add-sheet-btn">+ Add Sheet</button>
+            <div class="sheet-tab active">Weapons & Pets Database</div>
         </div>
-        <div style="color: #94a3b8; font-size: 0.8rem;">Ready • Infinite Scroll Enabled</div>
+        <button class="clear-btn" onclick="resetSheet()">Clear Sheet Data</button>
     </div>
 
     <script>
@@ -128,11 +124,12 @@
         const tableBody = document.querySelector('#spreadsheetTable tbody');
         const formulaInput = document.getElementById('formulaInput');
         const selectedCellLabel = document.getElementById('selectedCellLabel');
+        const saveStatus = document.getElementById('saveStatus');
 
-        const cols = 26; // A to Z
-        const rows = 150; // 150 rows (can be scrolled infinitely)
+        const cols = 20; // Columns A to T
+        const rows = 100; // 100 Rows
 
-        // Generate Column Headers (A, B, C...)
+        // Build Column Headers
         let headerHtml = '<th class="corner-header"></th>';
         for (let i = 0; i < cols; i++) {
             let colName = String.fromCharCode(65 + i);
@@ -140,7 +137,7 @@
         }
         tableHead.innerHTML = headerHtml;
 
-        // Generate Rows & Cells
+        // Build Rows & Cells
         let bodyHtml = '';
         for (let r = 1; r <= rows; r++) {
             bodyHtml += `<tr>`;
@@ -154,18 +151,28 @@
         }
         tableBody.innerHTML = bodyHtml;
 
-        // Cell Selection & Formula Bar Sync with Cyber Glow Animation
         const inputs = document.querySelectorAll('td input');
         let activeCell = null;
 
+        // Load saved data from localStorage on start
+        function loadSheetData() {
+            const savedData = JSON.parse(localStorage.getItem('void_rampagers_sheet')) || {};
+            inputs.forEach(input => {
+                let cellId = input.getAttribute('data-cell');
+                if (savedData[cellId] !== undefined) {
+                    input.value = savedData[cellId];
+                }
+            });
+        }
+
+        // Save data to localStorage on change
         inputs.forEach(input => {
             input.addEventListener('focus', (e) => {
                 if (activeCell) {
                     activeCell.closest('td').classList.remove('active-cell');
                 }
                 activeCell = e.target;
-                const td = activeCell.closest('td');
-                td.classList.add('active-cell');
+                activeCell.closest('td').classList.add('active-cell');
                 
                 const cellId = activeCell.getAttribute('data-cell');
                 selectedCellLabel.innerText = cellId;
@@ -176,30 +183,68 @@
                 if (activeCell === e.target) {
                     formulaInput.value = e.target.value;
                 }
+                saveDataToStorage();
             });
         });
 
         formulaInput.addEventListener('input', (e) => {
             if (activeCell) {
                 activeCell.value = e.target.value;
+                saveDataToStorage();
             }
         });
 
-        // Sample data for initial awesome look
-        document.querySelector('[data-cell="A1"]').value = "Item ID";
-        document.querySelector('[data-cell="B1"]').value = "Weapon Name";
-        document.querySelector('[data-cell="C1"]').value = "Element";
-        document.querySelector('[data-cell="D1"]').value = "Max Damage";
-        
-        document.querySelector('[data-cell="A2"]').value = "W_01";
-        document.querySelector('[data-cell="B2"]').value = "Abyssal Blade";
-        document.querySelector('[data-cell="C2"]').value = "Water";
-        document.querySelector('[data-cell="D2"]').value = "354";
+        function saveDataToStorage() {
+            const dataToSave = {};
+            inputs.forEach(input => {
+                let cellId = input.getAttribute('data-cell');
+                if (input.value.trim() !== '') {
+                    dataToSave[cellId] = input.value;
+                }
+            });
+            localStorage.setItem('void_rampagers_sheet', JSON.stringify(dataToSave));
+            
+            saveStatus.innerHTML = "⚡ Saving...";
+            setTimeout(() => {
+                saveStatus.innerHTML = "💾 Changes Saved to Web";
+            }, 400);
+        }
 
-        document.querySelector('[data-cell="A3"]').value = "W_02";
-        document.querySelector('[data-cell="B3"]').value = "All Seeing Axe";
-        document.querySelector('[data-cell="C3"]').value = "Darkness";
-        document.querySelector('[data-cell="D3"]').value = "483";
+        function resetSheet() {
+            if (confirm("Are you sure you want to clear all custom sheet data?")) {
+                localStorage.removeItem('void_rampagers_sheet');
+                inputs.forEach(input => input.value = '');
+                setDefaultData();
+                saveStatus.innerHTML = "🗑️ Sheet Reset!";
+            }
+        }
+
+        // Default Sample Data (Weapons & Pets names)
+        function setDefaultData() {
+            if (!localStorage.getItem('void_rampagers_sheet_initialized')) {
+                const defaults = {
+                    "A1": "Item ID", "B1": "Item Name", "C1": "Category", "D1": "Element / Type", "E1": "Max Power / Armor",
+                    "A2": "W_01", "B2": "Abyssal Blade", "C2": "Weapon (Sword)", "D2": "Water", "E2": "354 Damage",
+                    "A3": "W_02", "B3": "All Seeing Axe", "C3": "Weapon (Axe)", "D3": "Darkness", "E3": "483 Damage",
+                    "A4": "W_03", "B4": "Reinforced Hammer", "C4": "Weapon (Hammer)", "D4": "Earth", "E4": "303 Damage",
+                    "A5": "P_01", "B5": "Ancient Agent Ring", "C5": "Pet / Ring", "D5": "Summon", "E5": "Companion",
+                    "A6": "P_02", "B6": "Arara Grifo Ring", "C6": "Pet / Ring", "D6": "Mythical", "E6": "Griffin Pet",
+                    "A7": "P_03", "B7": "Crimson Dragon Ring", "C7": "Pet / Ring", "D7": "Fire", "E7": "Dragon Pet"
+                };
+                for (let cell in defaults) {
+                    let inp = document.querySelector(`[data-cell="${cell}"]`);
+                    if (inp) inp.value = defaults[cell];
+                }
+                localStorage.setItem('void_rampagers_sheet_initialized', 'true');
+                saveDataToStorage();
+            }
+        }
+
+        loadSheetData();
+        // If first time, load defaults
+        if (!localStorage.getItem('void_rampagers_sheet_initialized')) {
+            setDefaultData();
+        }
     </script>
 </body>
 </html>
