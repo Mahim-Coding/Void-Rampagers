@@ -3,204 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers Wiki - Armory & Arsenal</title>
+    <title>Void-Rampagers Wiki - Arsenal & Categories</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: #0b0c12;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            background-image: radial-gradient(circle at top, #181629 0%, #0b0c12 70%);
-        }
-
-        /* Navbar Style */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0b0c12;
-            padding: 18px 40px;
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
         .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
-        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
         .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
-        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; font-weight: 500; transition: 0.3s; }
-        .nav-link:hover { color: #ffffff; }
-        .nav-link.active-pill {
-            display: flex; align-items: center; gap: 8px; background: #13141f;
-            border: 1px solid #a855f7; color: #ffffff; padding: 8px 16px;
-            border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
-        }
-        .settings-btn {
-            display: flex; align-items: center; gap: 8px; background: #13141f;
-            border: 1px solid rgba(168, 85, 247, 0.4); color: #ffffff;
-            padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;
-        }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
 
-        /* Container & Header */
-        .container { max-width: 1050px; margin: 0 auto; padding: 50px 20px; }
-        .hub-header { text-align: center; margin-bottom: 45px; }
-        .hub-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #eab308; text-shadow: 0 0 20px rgba(234, 179, 8, 0.4); margin-bottom: 10px; }
-        .hub-header p { color: #94a3b8; font-size: 1rem; }
-
-        /* Grid Layout */
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 25px; }
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #a855f7; font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 15px rgba(168, 85, 247, 0.35); }
+        .arsenal-section p.subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 1rem; }
         
-        /* Base Card Style */
-        .cat-card {
-            background: #13141f; 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px; 
-            padding: 35px 25px; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        border-color 0.4s ease, 
-                        box-shadow 0.4s ease;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-            align-items: center;
-        }
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 30px 24px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #a855f7; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25); }
+        
+        .img-container { width: 70px; height: 70px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+        .weapon-card img { max-width: 36px; max-height: 36px; object-fit: contain; image-rendering: pixelated; }
 
-        /* Floating Icon Animation */
-        .cat-icon { 
-            font-size: 3.2rem; 
-            margin-bottom: 18px; 
-            display: inline-block; 
-            transition: transform 0.5s ease;
-            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.3)); 
-        }
-        .cat-card:hover .cat-icon { 
-            animation: floatBounce 1.5s infinite ease-in-out; 
-        }
-        @keyframes floatBounce { 
-            0%, 100% { transform: translateY(0) rotate(0deg); } 
-            50% { transform: translateY(-8px) rotate(6deg); } 
-        }
-
-        .cat-card h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
-        .cat-card p { color: #9ca3af; font-size: 0.9rem; line-height: 1.5; margin-bottom: 28px; }
-
-        /* Base Button Style with Shimmer */
-        .explore-btn {
-            display: inline-block; text-decoration: none;
-            color: #ffffff; font-weight: 600; font-size: 0.95rem;
-            padding: 12px 32px; border-radius: 50px; position: relative; overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .explore-btn::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-            transition: all 0.6s ease;
-        }
-        .explore-btn:hover::before { left: 100%; }
-
-        /* --- UNIQUE COLOR THEMES FOR EACH CATEGORY --- */
-
-        /* 1. Swords (Golden & Amber Theme) */
-        .card-sword:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #eab308;
-            box-shadow: 0 15px 35px rgba(234, 179, 8, 0.25), 0 0 20px rgba(234, 179, 8, 0.2);
-        }
-        .btn-sword {
-            background: linear-gradient(90deg, #ca8a04 0%, #eab308 100%);
-            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
-        }
-        .btn-sword:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.75);
-        }
-
-        /* 2. Grimorios (Purple & Magenta Theme) */
-        .card-grimorios:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #a855f7;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25), 0 0 20px rgba(236, 72, 153, 0.2);
-        }
-        .btn-grimorios {
-            background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
-        }
-        .btn-grimorios:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(236, 72, 153, 0.75);
-        }
-
-        /* 3. Maces (Orange & Red Fire Theme) */
-        .card-mace:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #f97316;
-            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.25), 0 0 20px rgba(239, 68, 68, 0.2);
-        }
-        .btn-mace {
-            background: linear-gradient(90deg, #c2410c 0%, #f97316 100%);
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
-        }
-        .btn-mace:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(249, 115, 22, 0.75);
-        }
-
-        /* 4. Staffs (Cyan & Blue Arcane Theme) */
-        .card-staff:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #06b6d4;
-            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25), 0 0 20px rgba(59, 130, 246, 0.2);
-        }
-        .btn-staff {
-            background: linear-gradient(90deg, #0284c7 0%, #06b6d4 100%);
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-        }
-        .btn-staff:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.75);
-        }
-
-        /* 5. Daggers (Emerald Green & Teal Theme) */
-        .card-dagger:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #10b981;
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25), 0 0 20px rgba(20, 184, 166, 0.2);
-        }
-        .btn-dagger {
-            background: linear-gradient(90deg, #047857 0%, #10b981 100%);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-        }
-        .btn-dagger:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.75);
-        }
-
-        /* 6. Spears (Indigo & Blue Royal Theme) */
-        .card-spear:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #6366f1;
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25), 0 0 20px rgba(79, 70, 229, 0.2);
-        }
-        .btn-spear {
-            background: linear-gradient(90deg, #4338ca 0%, #6366f1 100%);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-        .btn-spear:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 25px rgba(99, 102, 241, 0.75);
-        }
-
+        .weapon-card h3 { color: #fff; font-size: 1.15rem; margin-bottom: 12px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+        .weapon-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
+        
+        .card-btn { display: inline-block; background: linear-gradient(135deg, #a855f7, #9333ea); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); width: 100%; }
+        .card-btn:hover { background: linear-gradient(135deg, #9333ea, #7e22ce); box-shadow: 0 6px 16px rgba(168, 85, 247, 0.5); transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
-    <!-- TOP NAVIGATION BAR -->
     <nav class="navbar">
         <a href="index.html" class="nav-brand">
             <img src="sword_0.png" alt="Logo" class="nav-logo">
@@ -215,63 +52,28 @@
         </ul>
     </nav>
 
-    <!-- MAIN HUB CONTENT -->
-    <div class="container">
-        <div class="hub-header">
-            <h1>ARMORY & ARSENAL</h1>
-            <p>Select a weapon category below to explore stats, elemental powers, and hidden abilities!</p>
-        </div>
+    <section class="arsenal-section">
+        <h2>Arsenal Categories</h2>
+        <p class="subtitle">Explore the ultimate database of weapons, armor sets, and mystical equipment.</p>
+        
+        <div class="weapons-grid">
+            <!-- Weapons Hub Card -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="sword_0.png" alt="Weapons"></div>
+                <h3>WEAPONS ARSENAL</h3>
+                <p>Browse all legendary weapons including swords, magic staffs, daggers, and polearm spears.</p>
+                <a href="weapons.html" class="card-btn">Explore Weapons</a>
+            </div>
 
-        <div class="category-grid">
-            <!-- 1. Swords -->
-            <div class="cat-card card-sword">
-                <div class="cat-icon">⚔️</div>
-                <h2>Swords & Blades</h2>
-                <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
-                <a href="sword.html" class="explore-btn btn-sword">Open Swords</a>
-            </div>
-            
-            <!-- 2. Grimorios -->
-            <div class="cat-card card-grimorios">
-                <div class="cat-icon">📖</div>
-                <h2>Grimorios</h2>
-                <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
-                <a href="grimorios.html" class="explore-btn btn-grimorios">Open Grimorios</a>
-            </div>
-            
-            <!-- 3. Maces -->
-            <div class="cat-card card-mace">
-                <div class="cat-icon">🔨</div>
-                <h2>Maces & Crushers</h2>
-                <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
-                <a href="mace.html" class="explore-btn btn-mace">Open Maces</a>
-            </div>
-            
-            <!-- 4. Staffs -->
-            <div class="cat-card card-staff">
-                <div class="cat-icon">🔮</div>
-                <h2>Magic Staffs</h2>
-                <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
-                <a href="staff.html" class="explore-btn btn-staff">Open Staffs</a>
-            </div>
-            
-            <!-- 5. Daggers -->
-            <div class="cat-card card-dagger">
-                <div class="cat-icon">🗡️</div>
-                <h2>Daggers & Knives</h2>
-                <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
-                <a href="dagger.html" class="explore-btn btn-dagger">Open Daggers</a>
-            </div>
-            
-            <!-- 6. Spears -->
-            <div class="cat-card card-spear">
-                <div class="cat-icon">🔱</div>
-                <h2>Spears & Polearms</h2>
-                <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
-                <a href="spears.html" class="explore-btn btn-spear">Open Spears</a>
+            <!-- Suits / Armor Hub Card -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="staff_0.png" alt="Suits"></div>
+                <h3>ARMOR & SUITS</h3>
+                <p>Discover protective battle gear, heavy metal plates, stealth cloaks, and elemental suits.</p>
+                <a href="suit.html" class="card-btn">Explore Suits</a>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
