@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void-Rampagers Wiki - Arsenal & Categories</title>
+    <title>Void-Rampagers Wiki - Main Arsenal</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,12 +22,37 @@
         .arsenal-section h2 { font-family: 'Cinzel', serif; color: #a855f7; font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 15px rgba(168, 85, 247, 0.35); }
         .arsenal-section p.subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 1rem; }
         
-        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 30px 24px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .weapon-card:hover { transform: translateY(-6px); border-color: #a855f7; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25); }
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 30px 24px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; }
+        .weapon-card:hover { transform: translateY(-8px); border-color: #a855f7; box-shadow: 0 12px 30px rgba(168, 85, 247, 0.3); }
         
-        .img-container { width: 70px; height: 70px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
-        .weapon-card img { max-width: 36px; max-height: 36px; object-fit: contain; image-rendering: pixelated; }
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .img-container { 
+            width: 75px; 
+            height: 75px; 
+            background: rgba(168, 85, 247, 0.1); 
+            border: 1px solid rgba(168, 85, 247, 0.3); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); 
+            font-size: 2rem;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        .weapon-card:hover .img-container {
+            animation: floatIcon 1.5s ease-in-out infinite;
+            background: rgba(168, 85, 247, 0.2);
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
 
         .weapon-card h3 { color: #fff; font-size: 1.15rem; margin-bottom: 12px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
         .weapon-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
@@ -53,24 +78,24 @@
     </nav>
 
     <section class="arsenal-section">
-        <h2>Arsenal Categories</h2>
-        <p class="subtitle">Explore the ultimate database of weapons, armor sets, and mystical equipment.</p>
+        <h2>Main Arsenal Hub</h2>
+        <p class="subtitle">Explore weapons, gear, artifacts, and mystical companion summoning rings.</p>
         
         <div class="weapons-grid">
-            <!-- Weapons Hub Card -->
+            <!-- Weapons Hub -->
             <div class="weapon-card">
-                <div class="img-container"><img src="sword_0.png" alt="Weapons"></div>
-                <h3>WEAPONS ARSENAL</h3>
-                <p>Browse all legendary weapons including swords, magic staffs, daggers, and polearm spears.</p>
-                <a href="weapons.html" class="card-btn">Explore Weapons</a>
+                <div class="img-container">⚔️</div>
+                <h3>WEAPONS & ARSENAL</h3>
+                <p>Browse through categorized legendary swords, axes, maces, hammers, stiffs, and grimorios.</p>
+                <a href="weapons.html" class="card-btn">Open Weapons Hub</a>
             </div>
 
-            <!-- Suits / Armor Hub Card -->
+            <!-- Pets & Rings Tab -->
             <div class="weapon-card">
-                <div class="img-container"><img src="staff_0.png" alt="Suits"></div>
-                <h3>ARMOR & SUITS</h3>
-                <p>Discover protective battle gear, heavy metal plates, stealth cloaks, and elemental suits.</p>
-                <a href="suit.html" class="card-btn">Explore Suits</a>
+                <div class="img-container">🐾</div>
+                <h3>PETS & SUMMONING RINGS</h3>
+                <p>Discover mystical companion rings, ancient artifacts, and magical pet summoning items.</p>
+                <a href="pet.html" class="card-btn">Open Pets & Rings</a>
             </div>
         </div>
     </section>
