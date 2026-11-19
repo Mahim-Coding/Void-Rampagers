@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers - Ultra Unique Cyber Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+        /* Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 12px 30px; border-bottom: 1px solid rgba(168, 85, 247, 0.3); z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 28px; height: 28px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 20px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.9rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 6px 14px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+
+        /* Sheet Top Toolbar (Google Sheets Style with Cyber Vibe) */
+        .toolbar { background: #13141f; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 20px; display: flex; align-items: center; gap: 15px; font-size: 0.85rem; }
+        .sheet-title-input { background: transparent; border: 1px solid transparent; color: #fff; font-family: 'Cinzel', serif; font-size: 1.1rem; padding: 4px 8px; border-radius: 4px; outline: none; transition: 0.3s; }
+        .sheet-title-input:hover, .sheet-title-input:focus { border-color: rgba(168, 85, 247, 0.5); background: rgba(168, 85, 247, 0.05); }
+        
+        .formula-bar { background: #14161f; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding: 6px 20px; display: flex; align-items: center; gap: 10px; font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+        .cell-indicator { color: #a855f7; font-weight: bold; min-width: 40px; }
+        .fx-symbol { color: #94a3b8; font-weight: bold; }
+        .formula-input { background: transparent; border: none; color: #fff; width: 100%; outline: none; font-family: 'Fira Code', monospace; }
+
+        /* Spreadsheet Grid Container with Ultra Unique Glow & Animation */
+        .grid-container { flex: 1; overflow: auto; position: relative; background: radial-gradient(circle at center, #12131c 0%, #0b0c12 100%); }
+        
+        table { border-collapse: collapse; width: max-content; table-layout: fixed; }
+        th, td { border: 1px solid rgba(168, 85, 247, 0.15); padding: 0; text-align: left; height: 28px; }
+        
+        /* Headers (Row numbers & Column letters) */
+        th { background: #13141f; color: #a855f7; font-weight: 600; text-align: center; font-size: 0.8rem; user-select: none; position: sticky; z-index: 10; }
+        th.col-header { top: 0; min-width: 110px; }
+        th.row-header { left: 0; min-width: 50px; z-index: 20; }
+        th.corner-header { top: 0; left: 0; z-index: 30; }
+
+        /* Editable Cells */
+        td input { width: 100%; height: 100%; background: transparent; border: none; color: #e2e8f0; padding: 0 8px; font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none; }
+        td input:focus { background: rgba(168, 85, 247, 0.12); box-shadow: inset 0 0 0 2px #a855f7; color: #fff; }
+
+        /* Selected Cell Cyber Glow Animation */
+        @keyframes cyberPulse {
+            0% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.5), inset 0 0 5px rgba(168, 85, 247, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.9), inset 0 0 10px rgba(168, 85, 247, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.5), inset 0 0 5px rgba(168, 85, 247, 0.3); }
+        }
+        td.active-cell { animation: cyberPulse 2s infinite ease-in-out; border: 2px solid #a855f7 !important; background: rgba(168, 85, 247, 0.15); }
+
+        /* Bottom Sheet Tabs */
+        .sheet-footer { background: #13141f; border-top: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; }
+        .tabs-container { display: flex; gap: 5px; }
+        .sheet-tab { background: #1a1c29; border: 1px solid rgba(168, 85, 247, 0.3); color: #a855f7; padding: 4px 16px; border-radius: 4px 4px 0 0; cursor: pointer; transition: 0.3s; font-weight: 500; }
+        .sheet-tab.active { background: #0b0c12; border-bottom: 2px solid #a855f7; color: #fff; box-shadow: 0 -4px 10px rgba(168, 85, 247, 0.2); }
+        .add-sheet-btn { background: transparent; border: 1px dashed rgba(168, 85, 247, 0.4); color: #a855f7; padding: 4px 12px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .add-sheet-btn:hover { background: rgba(168, 85, 247, 0.1); color: #fff; }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0c12; }
+        ::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(168, 85, 247, 0.6); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link">Arsenal</a></li>
+            <li><a href="spreadsheet.html" class="nav-link active-pill">📊 Cyber Sheets</a></li>
+            <li><a href="settings.html" class="nav-link">Settings</a></li>
+        </ul>
+    </nav>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <input type="text" class="sheet-title-input" value="Void_Rampagers_Wiki_Database">
+        <span style="color: #94a3b8; font-size: 0.8rem;">| ✨ Auto-Sync Active</span>
+    </div>
+
+    <!-- Formula Bar -->
+    <div class="formula-bar">
+        <span class="cell-indicator" id="selectedCellLabel">A1</span>
+        <span class="fx-symbol">ƒx</span>
+        <input type="text" class="formula-input" id="formulaInput" placeholder="Enter value or formula...">
+    </div>
+
+    <!-- Spreadsheet Grid Area -->
+    <div class="grid-container" id="gridContainer">
+        <table id="spreadsheetTable">
+            <thead>
+                <tr>
+                    <th class="corner-header"></th>
+                    <!-- Columns A to Z will be generated via JS -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows 1 to 100 will be generated via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer Tabs -->
+    <div class="sheet-footer">
+        <div class="tabs-container">
+            <div class="sheet-tab active">Weapons Database</div>
+            <div class="sheet-tab">Pets & Rings</div>
+            <div class="sheet-tab">Armor Stats</div>
+            <button class="add-sheet-btn">+ Add Sheet</button>
+        </div>
+        <div style="color: #94a3b8; font-size: 0.8rem;">Ready • Infinite Scroll Enabled</div>
+    </div>
+
+    <script>
+        const tableHead = document.querySelector('#spreadsheetTable thead tr');
+        const tableBody = document.querySelector('#spreadsheetTable tbody');
+        const formulaInput = document.getElementById('formulaInput');
+        const selectedCellLabel = document.getElementById('selectedCellLabel');
+
+        const cols = 26; // A to Z
+        const rows = 150; // 150 rows (can be scrolled infinitely)
+
+        // Generate Column Headers (A, B, C...)
+        let headerHtml = '<th class="corner-header"></th>';
+        for (let i = 0; i < cols; i++) {
+            let colName = String.fromCharCode(65 + i);
+            headerHtml += `<th class="col-header">${colName}</th>`;
+        }
+        tableHead.innerHTML = headerHtml;
+
+        // Generate Rows & Cells
+        let bodyHtml = '';
+        for (let r = 1; r <= rows; r++) {
+            bodyHtml += `<tr>`;
+            bodyHtml += `<th class="row-header">${r}</th>`;
+            for (let c = 0; c < cols; c++) {
+                let colName = String.fromCharCode(65 + c);
+                let cellId = `${colName}${r}`;
+                bodyHtml += `<td><input type="text" data-cell="${cellId}" /></td>`;
+            }
+            bodyHtml += `</tr>`;
+        }
+        tableBody.innerHTML = bodyHtml;
+
+        // Cell Selection & Formula Bar Sync with Cyber Glow Animation
+        const inputs = document.querySelectorAll('td input');
+        let activeCell = null;
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', (e) => {
+                if (activeCell) {
+                    activeCell.closest('td').classList.remove('active-cell');
+                }
+                activeCell = e.target;
+                const td = activeCell.closest('td');
+                td.classList.add('active-cell');
+                
+                const cellId = activeCell.getAttribute('data-cell');
+                selectedCellLabel.innerText = cellId;
+                formulaInput.value = activeCell.value;
+            });
+
+            input.addEventListener('input', (e) => {
+                if (activeCell === e.target) {
+                    formulaInput.value = e.target.value;
+                }
+            });
+        });
+
+        formulaInput.addEventListener('input', (e) => {
+            if (activeCell) {
+                activeCell.value = e.target.value;
+            }
+        });
+
+        // Sample data for initial awesome look
+        document.querySelector('[data-cell="A1"]').value = "Item ID";
+        document.querySelector('[data-cell="B1"]').value = "Weapon Name";
+        document.querySelector('[data-cell="C1"]').value = "Element";
+        document.querySelector('[data-cell="D1"]').value = "Max Damage";
+        
+        document.querySelector('[data-cell="A2"]').value = "W_01";
+        document.querySelector('[data-cell="B2"]').value = "Abyssal Blade";
+        document.querySelector('[data-cell="C2"]').value = "Water";
+        document.querySelector('[data-cell="D2"]').value = "354";
+
+        document.querySelector('[data-cell="A3"]').value = "W_02";
+        document.querySelector('[data-cell="B3"]').value = "All Seeing Axe";
+        document.querySelector('[data-cell="C3"]').value = "Darkness";
+        document.querySelector('[data-cell="D3"]').value = "483";
+    </script>
+</body>
+</html>
