@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers Wiki - Axes Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #f97316; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #f97316; font-size: 2.2rem; margin-bottom: 30px; text-shadow: 0 0 15px rgba(249, 115, 22, 0.35); }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(249, 115, 22, 0.25); border-radius: 12px; padding: 20px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: left; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #f97316; box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25); }
+        
+        .img-container { width: 100%; height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 12px; }
+        .weapon-card img { max-width: 64px; max-height: 64px; object-fit: contain; image-rendering: pixelated; }
+
+        .weapon-card h3 { color: #fff; font-size: 0.95rem; margin: 5px 0 10px 0; font-family: 'Cinzel', serif; text-align: center; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .weapon-card p { color: #94a3b8; font-size: 0.82rem; margin: 4px 0; width: 100%; line-height: 1.4; }
+        .weapon-card strong { color: #f97316; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
+
+    <section class="arsenal-section">
+        <a href="weapons.html" class="back-btn">← Back to Weapons Arsenal</a>
+        <h2>Axes & Battle-Cleavers Collection</h2>
+        <div class="weapons-grid">
+            <!-- 1 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_0.png" alt="Double Iron Battleaxe"></div>
+                <h3>Double Iron Battleaxe</h3>
+                <p><strong>Type:</strong> Heavy / Slash</p>
+                <p><strong>Power:</strong> 45 Attack</p>
+                <p><strong>Ability:</strong> Balanced dual-edge steel axe capable of splitting heavy enemy shields.</p>
+            </div>
+            <!-- 2 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_1.png" alt="Single Handed War Axe"></div>
+                <h3>Single Handed War Axe</h3>
+                <p><strong>Type:</strong> Combat / Utility</p>
+                <p><strong>Power:</strong> 38 Attack</p>
+                <p><strong>Ability:</strong> Swift one-handed chopping axe designed for aggressive close combat.</p>
+            </div>
+            <!-- 3 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_2.png" alt="Brutal Steel Cleaver"></div>
+                <h3>Brutal Steel Cleaver</h3>
+                <p><strong>Type:</strong> Heavy / Slash</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Reinforced wide blades built to deliver devastating bleeding impacts.</p>
+            </div>
+            <!-- 4 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_air.png" alt="Zephyr Wind Axe"></div>
+                <h3>Zephyr Wind Axe</h3>
+                <p><strong>Type:</strong> Wind / Mystic</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> Imbued with ethereal gales that increase swing speed and mobility.</p>
+            </div>
+            <!-- 5 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_all_seeing.png" alt="All-Seeing Blood Axe"></div>
+                <h3>All-Seeing Blood Axe</h3>
+                <p><strong>Type:</strong> Mystic / Blood</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> Features a cursed magical eye that exposes enemy weak points.</p>
+            </div>
+            <!-- 6 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_bone.png" alt="Primitive Bone Hatchet"></div>
+                <h3>Primitive Bone Hatchet</h3>
+                <p><strong>Type:</strong> Bone / Ancient</p>
+                <p><strong>Power:</strong> 32 Attack</p>
+                <p><strong>Ability:</strong> Jagged monster bone tied tightly with rawhide straps.</p>
+            </div>
+            <!-- 7 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_cthulhu.png" alt="Eldritch Tentacle Axe"></div>
+                <h3>Eldritch Tentacle Axe</h3>
+                <p><strong>Type:</strong> Eldritch / Toxic</p>
+                <p><strong>Power:</strong> 62 Attack</p>
+                <p><strong>Ability:</strong> Infused with deep-sea horrors, dripping with sanity-draining slime.</p>
+            </div>
+            <!-- 8 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_easter.png" alt="Spring Blossom Hatchet"></div>
+                <h3>Spring Blossom Hatchet</h3>
+                <p><strong>Type:</strong> Event / Mystic</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> Ornate pastel pink festival axe radiating cheerful magical energy.</p>
+            </div>
+            <!-- 9 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_epic_fire_small.png" alt="Magma Epic Flame Axe"></div>
+                <h3>Magma Epic Flame Axe</h3>
+                <p><strong>Type:</strong> Fire / Elite</p>
+                <p><strong>Power:</strong> 64 Attack</p>
+                <p><strong>Ability:</strong> Blazing hot double-bladed axe that ignites targets upon contact.</p>
+            </div>
+            <!-- 10 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_frost.png" alt="Glacial Ice Cleaver"></div>
+                <h3>Glacial Ice Cleaver</h3>
+                <p><strong>Type:</strong> Ice / Crystal</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Crystallized blue frost axe that freezes enemy movement speeds.</p>
+            </div>
+            <!-- 11 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_justice.png" alt="Radiant Solar Judgement"></div>
+                <h3>Radiant Solar Judgement</h3>
+                <p><strong>Type:</strong> Holy / Light</p>
+                <p><strong>Power:</strong> 60 Attack</p>
+                <p><strong>Ability:</strong> Golden wing-styled axe shining with purifying solar holy light.</p>
+            </div>
+            <!-- 12 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_poison.png" alt="Venomous Acid Cleaver"></div>
+                <h3>Venomous Acid Cleaver</h3>
+                <p><strong>Type:</strong> Poison / Toxic</p>
+                <p><strong>Power:</strong> 54 Attack</p>
+                <p><strong>Ability:</strong> Glowing green toxic blades that melt through armor over time.</p>
+            </div>
+            <!-- 13 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_snake.png" alt="Serpent Coiled Battleaxe"></div>
+                <h3>Serpent Coiled Battleaxe</h3>
+                <p><strong>Type:</strong> Poison / Mystic</p>
+                <p><strong>Power:</strong> 56 Attack</p>
+                <p><strong>Ability:</strong> Entwined with a living green viper delivering venomous bites.</p>
+            </div>
+            <!-- 14 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_spider.png" alt="Black Widow Reaver"></div>
+                <h3>Black Widow Reaver</h3>
+                <p><strong>Type:</strong> Poison / Dark</p>
+                <p><strong>Power:</strong> 59 Attack</p>
+                <p><strong>Ability:</strong> Arachnid-themed dark axe injecting paralyzing venom on critical hits.</p>
+            </div>
+            <!-- 15 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_steel.png" alt="Polished Steel Waraxe"></div>
+                <h3>Polished Steel Waraxe</h3>
+                <p><strong>Type:</strong> Steel / Pierce</p>
+                <p><strong>Power:</strong> 46 Attack</p>
+                <p><strong>Ability:</strong> Clean, perfectly weighted steel blades for balanced frontline combat.</p>
+            </div>
+            <!-- 16 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_survivor.png" alt="Wasteland Scrappy Axe"></div>
+                <h3>Wasteland Scrappy Axe</h3>
+                <p><strong>Type:</strong> Survivor / Rough</p>
+                <p><strong>Power:</strong> 40 Attack</p>
+                <p><strong>Ability:</strong> Rusted sheet metal bound securely for brutal post-apocalyptic defense.</p>
+            </div>
+            <!-- 17 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_treasure.png" alt="Gilded Sunburst Axe"></div>
+                <h3>Gilded Sunburst Axe</h3>
+                <p><strong>Type:</strong> Treasure / Elite</p>
+                <p><strong>Power:</strong> 66 Attack</p>
+                <p><strong>Ability:</strong> Ornate golden ceremonial battleaxe radiating radiant solar energy.</p>
+            </div>
+            <!-- 18 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="axe_water.png" alt="Abyssal Hydro Battleaxe"></div>
+                <h3>Abyssal Hydro Battleaxe</h3>
+                <p><strong>Type:</strong> Water / Magic</p>
+                <p><strong>Power:</strong> 57 Attack</p>
+                <p><strong>Ability:</strong> Glowing blue water bubble core that unleashes tidal pressure shocks.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
