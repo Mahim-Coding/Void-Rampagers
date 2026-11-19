@@ -26,10 +26,36 @@
         
         .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
         .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 30px 24px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; }
-        .weapon-card:hover { transform: translateY(-6px); border-color: #a855f7; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25); }
+        .weapon-card:hover { transform: translateY(-8px); border-color: #a855f7; box-shadow: 0 12px 30px rgba(168, 85, 247, 0.3); }
         
-        .img-container { width: 70px; height: 70px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
-        .weapon-card img { max-width: 36px; max-height: 36px; object-fit: contain; image-rendering: pixelated; }
+        /* Smooth Floating Animation for Icons */
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .img-container { 
+            width: 75px; 
+            height: 75px; 
+            background: rgba(168, 85, 247, 0.1); 
+            border: 1px solid rgba(168, 85, 247, 0.3); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); 
+            font-size: 2rem;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        .weapon-card:hover .img-container {
+            animation: floatIcon 1.5s ease-in-out infinite;
+            background: rgba(168, 85, 247, 0.2);
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
 
         .weapon-card h3 { color: #fff; font-size: 1.15rem; margin-bottom: 12px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
         .weapon-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
@@ -62,7 +88,7 @@
         <div class="weapons-grid">
             <!-- Swords & Blades -->
             <div class="weapon-card">
-                <div class="img-container"><img src="🗡️" alt="Sword"></div>
+                <div class="img-container">⚔️</div>
                 <h3>SWORDS & BLADES</h3>
                 <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
                 <a href="sword.html" class="card-btn">Open Swords</a>
@@ -70,7 +96,7 @@
 
             <!-- Grimoiros -->
             <div class="weapon-card">
-                <div class="img-container"><img src="📖" alt="Grimorios"></div>
+                <div class="img-container">📖</div>
                 <h3>GRIMORIOS</h3>
                 <p>Unlock ancient spellbooks, dark necromancy tomes, and elemental codices to unleash arcane magic.</p>
                 <a href="grimorios.html" class="card-btn">Open Grimorios</a>
@@ -78,7 +104,7 @@
 
             <!-- Maces & Crushers -->
             <div class="weapon-card">
-                <div class="img-container"><img src="🔨" alt="Maces"></div>
+                <div class="img-container">🔨</div>
                 <h3>MACES & CRUSHERS</h3>
                 <p>Wield heavy spiked maces, toxic acid orbs, and stone crushers built to shatter enemy armor.</p>
                 <a href="mace.html" class="card-btn">Open Maces</a>
@@ -86,7 +112,7 @@
 
             <!-- Magic Staffs -->
             <div class="weapon-card">
-                <div class="img-container"><img src="🔮" alt="Staff"></div>
+                <div class="img-container">🔮</div>
                 <h3>MAGIC STAFFS</h3>
                 <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
                 <a href="staff.html" class="card-btn">Open Staffs</a>
@@ -94,7 +120,7 @@
 
             <!-- Daggers & Knives -->
             <div class="weapon-card">
-                <div class="img-container"><img src="🗡" alt="Dagger"></div>
+                <div class="img-container">🗡️</div>
                 <h3>DAGGERS & KNIVES</h3>
                 <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
                 <a href="dagger.html" class="card-btn">Open Daggers</a>
@@ -102,7 +128,7 @@
 
             <!-- Spears & Polearms -->
             <div class="weapon-card">
-                <div class="img-container"><img src="🔱" alt="Spear"></div>
+                <div class="img-container">🔱</div>
                 <h3>SPEARS & POLEARMS</h3>
                 <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
                 <a href="spears.html" class="card-btn">Open Spears</a>
