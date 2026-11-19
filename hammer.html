@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers Wiki - Maces & Hammers Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #eab308; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #eab308; font-size: 2.2rem; margin-bottom: 30px; text-shadow: 0 0 15px rgba(234, 179, 8, 0.35); }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px; padding: 20px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: left; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #eab308; box-shadow: 0 8px 20px rgba(234, 179, 8, 0.25); }
+        
+        .img-container { width: 100%; height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 12px; }
+        .weapon-card img { max-width: 64px; max-height: 64px; object-fit: contain; image-rendering: pixelated; }
+
+        .weapon-card h3 { color: #fff; font-size: 0.95rem; margin: 5px 0 10px 0; font-family: 'Cinzel', serif; text-align: center; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .weapon-card p { color: #94a3b8; font-size: 0.82rem; margin: 4px 0; width: 100%; line-height: 1.4; }
+        .weapon-card strong { color: #eab308; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
+
+    <section class="arsenal-section">
+        <a href="weapons.html" class="back-btn">← Back to Weapons Arsenal</a>
+        <h2>Maces & Heavy Hammers Collection</h2>
+        <div class="weapons-grid">
+            <!-- 1 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_0.png" alt="Reinforced Iron Hammer"></div>
+                <h3>Reinforced Iron Hammer</h3>
+                <p><strong>Type:</strong> Heavy / Crush</p>
+                <p><strong>Power:</strong> 48 Attack</p>
+                <p><strong>Ability:</strong> Sturdy metallic mallet designed to crush armor and bones.</p>
+            </div>
+            <!-- 2 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_1.png" alt="Cracked Stone Sledge"></div>
+                <h3>Cracked Stone Sledge</h3>
+                <p><strong>Type:</strong> Heavy / Earth</p>
+                <p><strong>Power:</strong> 52 Attack</p>
+                <p><strong>Ability:</strong> Massive stone head that causes minor shockwaves upon impact.</p>
+            </div>
+            <!-- 3 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_2.png" alt="Bloodstained Spiked Mace"></div>
+                <h3>Bloodstained Spiked Mace</h3>
+                <p><strong>Type:</strong> Brutal / Pierce</p>
+                <p><strong>Power:</strong> 55 Attack</p>
+                <p><strong>Ability:</strong> Covered in spikes and dried battle stains for maximum bleeding damage.</p>
+            </div>
+            <!-- 4 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_2_clean.png" alt="Polished Ceremonial Mace"></div>
+                <h3>Polished Ceremonial Mace</h3>
+                <p><strong>Type:</strong> Steel / Elite</p>
+                <p><strong>Power:</strong> 54 Attack</p>
+                <p><strong>Ability:</strong> Immaculate studded steel head built for royal vanguard commanders.</p>
+            </div>
+            <!-- 5 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_3.png" alt="Mech-Core Energy Sledge"></div>
+                <h3>Mech-Core Energy Sledge</h3>
+                <p><strong>Type:</strong> Sci-Fi / Tech</p>
+                <p><strong>Power:</strong> 60 Attack</p>
+                <p><strong>Ability:</strong> High-tech reactor core emits green energy pulses on heavy slams.</p>
+            </div>
+            <!-- 6 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_4.png" alt="Cybernetic Shock Hammer"></div>
+                <h3>Cybernetic Shock Hammer</h3>
+                <p><strong>Type:</strong> Tech / Plasma</p>
+                <p><strong>Power:</strong> 62 Attack</p>
+                <p><strong>Ability:</strong> Sleek reinforced alloy powered by internal micro-plasma charges.</p>
+            </div>
+            <!-- 7 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_ancient.png" alt="Ancient Golem Crusher"></div>
+                <h3>Ancient Golem Crusher</h3>
+                <p><strong>Type:</strong> Ancient / Stone</p>
+                <p><strong>Power:</strong> 65 Attack</p>
+                <p><strong>Ability:</strong> Carved from living rock with animated stone faces radiating ancient fury.</p>
+            </div>
+            <!-- 8 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_blessed.png" alt="Blessed Golden Warhammer"></div>
+                <h3>Blessed Golden Warhammer</h3>
+                <p><strong>Type:</strong> Holy / Light</p>
+                <p><strong>Power:</strong> 64 Attack</p>
+                <p><strong>Ability:</strong> Sanctified golden head that banishes dark entities and undead foes.</p>
+            </div>
+            <!-- 9 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_bone.png" alt="Primitive Bone Club"></div>
+                <h3>Primitive Bone Club</h3>
+                <p><strong>Type:</strong> Bone / Rough</p>
+                <p><strong>Power:</strong> 38 Attack</p>
+                <p><strong>Ability:</strong> Heavy beast bones strapped together with crude leather bindings.</p>
+            </div>
+            <!-- 10 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_chapulin.png" alt="Crimson Cartoon Mallet"></div>
+                <h3>Crimson Cartoon Mallet</h3>
+                <p><strong>Type:</strong> Special / Fun</p>
+                <p><strong>Power:</strong> 50 Attack</p>
+                <p><strong>Ability:</strong> Bright red glossy party hammer that delivers surprisingly comical heavy hits.</p>
+            </div>
+            <!-- 11 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_cthulhu.png" alt="Eldritch Abyssal Mace"></div>
+                <h3>Eldritch Abyssal Mace</h3>
+                <p><strong>Type:</strong> Eldritch / Mystic</p>
+                <p><strong>Power:</strong> 68 Attack</p>
+                <p><strong>Ability:</strong> Built from deep-sea horrors with a glowing hypnotic central eye.</p>
+            </div>
+            <!-- 12 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_falcon.png" alt="Aero Guardian Hammer"></div>
+                <h3>Aero Guardian Hammer</h3>
+                <p><strong>Type:</strong> Wind / Air</p>
+                <p><strong>Power:</strong> 56 Attack</p>
+                <p><strong>Ability:</strong> Teal-gold metallic mallet engraved with sacred winged guardian crests.</p>
+            </div>
+            <!-- 13 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_fire.png" alt="Volcanic Magma Sledge"></div>
+                <h3>Volcanic Magma Sledge</h3>
+                <p><strong>Type:</strong> Fire / Elite</p>
+                <p><strong>Power:</strong> 63 Attack</p>
+                <p><strong>Ability:</strong> Superheated glowing metal head that melts enemy armor instantly.</p>
+            </div>
+            <!-- 14 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_light.png" alt="Radiant Solar Mallet"></div>
+                <h3>Radiant Solar Mallet</h3>
+                <p><strong>Type:</strong> Holy / Light</p>
+                <p><strong>Power:</strong> 61 Attack</p>
+                <p><strong>Ability:</strong> Shines with blinding golden light, purging corruption with every strike.</p>
+            </div>
+            <!-- 15 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_liquid.png" alt="Hydro Crystal Sledge"></div>
+                <h3>Hydro Crystal Sledge</h3>
+                <p><strong>Type:</strong> Water / Crystal</p>
+                <p><strong>Power:</strong> 58 Attack</p>
+                <p><strong>Ability:</strong> Glowing blue liquid core that splashes freezing tidal pressure waves.</p>
+            </div>
+            <!-- 16 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_mojara.png" alt="Spiked Demon Destroyer"></div>
+                <h3>Spiked Demon Destroyer</h3>
+                <p><strong>Type:</strong> Dark / Demonic</p>
+                <p><strong>Power:</strong> 66 Attack</p>
+                <p><strong>Ability:</strong> Menacing purple-plated spiked crusher embedded with a demonic eye.</p>
+            </div>
+            <!-- 17 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_poison.png" alt="Venomous Acid Crusher"></div>
+                <h3>Venomous Acid Crusher</h3>
+                <p><strong>Type:</strong> Poison / Toxic</p>
+                <p><strong>Power:</strong> 57 Attack</p>
+                <p><strong>Ability:</strong> Leaks radioactive green toxic sludge that corrodes enemy defenses.</p>
+            </div>
+            <!-- 18 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_root.png" alt="Verdant Nature Sledge"></div>
+                <h3>Verdant Nature Sledge</h3>
+                <p><strong>Type:</strong> Nature / Earth</p>
+                <p><strong>Power:</strong> 53 Attack</p>
+                <p><strong>Ability:</strong> Crafted from ancient tree roots channeling glowing forest energy.</p>
+            </div>
+            <!-- 19 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_survivor.png" alt="Wasteland Scrappy Mallet"></div>
+                <h3>Wasteland Scrappy Mallet</h3>
+                <p><strong>Type:</strong> Survivor / Rough</p>
+                <p><strong>Power:</strong> 42 Attack</p>
+                <p><strong>Ability:</strong> Heavy scrap spheres bound securely with frayed ropes for wasteland defense.</p>
+            </div>
+            <!-- 20 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_treasure.png" alt="Gilded Emerald Warhammer"></div>
+                <h3>Gilded Emerald Warhammer</h3>
+                <p><strong>Type:</strong> Treasure / Elite</p>
+                <p><strong>Power:</strong> 70 Attack</p>
+                <p><strong>Ability:</strong> Luxurious pure gold mallet embedded with glowing emerald crystals.</p>
+            </div>
+            <!-- 21 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_verdant.png" alt="Forest Guardian Hammer"></div>
+                <h3>Forest Guardian Hammer</h3>
+                <p><strong>Type:</strong> Nature / Elite</p>
+                <p><strong>Power:</strong> 59 Attack</p>
+                <p><strong>Ability:</strong> Reinforced green-steel hammer stamped with sacred leaf emblems.</p>
+            </div>
+            <!-- 22 -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="hammer_volcano.png" alt="Magma Core Crusher"></div>
+                <h3>Magma Core Crusher</h3>
+                <p><strong>Type:</strong> Fire / Heavy</p>
+                <p><strong>Power:</strong> 67 Attack</p>
+                <p><strong>Ability:</strong> Cracking volcanic rock plates radiating extreme subterranean heat.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
