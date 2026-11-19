@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void-Rampagers Wiki - Weapons Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c12; color: #fff; font-family: 'Inter', sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #0b0c12; padding: 18px 40px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .nav-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-link { text-decoration: none; color: #94a3b8; font-size: 0.95rem; transition: 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active-pill { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid #a855f7; color: #fff; padding: 8px 16px; border-radius: 8px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); }
+        .settings-btn { display: flex; align-items: center; gap: 8px; background: #13141f; border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+
+        .arsenal-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #a855f7; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .arsenal-section h2 { font-family: 'Cinzel', serif; color: #a855f7; font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 15px rgba(168, 85, 247, 0.35); }
+        .arsenal-section p.subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 1rem; }
+        
+        .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .weapon-card { background: #14161f; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 30px 24px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; }
+        .weapon-card:hover { transform: translateY(-6px); border-color: #a855f7; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25); }
+        
+        .img-container { width: 70px; height: 70px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+        .weapon-card img { max-width: 36px; max-height: 36px; object-fit: contain; image-rendering: pixelated; }
+
+        .weapon-card h3 { color: #fff; font-size: 1.15rem; margin-bottom: 12px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+        .weapon-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
+        
+        .card-btn { display: inline-block; background: linear-gradient(135deg, #a855f7, #9333ea); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); width: 100%; }
+        .card-btn:hover { background: linear-gradient(135deg, #9333ea, #7e22ce); box-shadow: 0 6px 16px rgba(168, 85, 247, 0.5); transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="sword_0.png" alt="Logo" class="nav-logo">
+            <span class="nav-title">VOID-RAMPAGERS</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="arsenal.html" class="nav-link active-pill">⚔️ Arsenal & Wiki</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="settings.html" class="settings-btn">⚙️ Settings</a></li>
+        </ul>
+    </nav>
+
+    <section class="arsenal-section">
+        <a href="arsenal.html" class="back-btn">← Back to Main Arsenal</a>
+        <h2>Weapons Arsenal</h2>
+        <p class="subtitle">Choose a category to explore legendary weapons, elemental blades, and mystical artifacts.</p>
+        
+        <div class="weapons-grid">
+            <!-- Swords & Blades -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="sword_0.png" alt="Sword"></div>
+                <h3>SWORDS & BLADES</h3>
+                <p>Explore balanced blades, elemental greatswords, and legendary royal sabers for close-range mastery.</p>
+                <a href="sword.html" class="card-btn">Open Swords</a>
+            </div>
+
+            <!-- Magic Staffs -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="staff_0.png" alt="Staff"></div>
+                <h3>MAGIC STAFFS</h3>
+                <p>Channel high-velocity elemental beams and mystic energy blasts with enchanted sorcerer staffs.</p>
+                <a href="staff.html" class="card-btn">Open Staffs</a>
+            </div>
+
+            <!-- Daggers & Knives -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="dagger_0.png" alt="Dagger"></div>
+                <h3>DAGGERS & KNIVES</h3>
+                <p>Strike with blinding speed, critical backstabs, and rapid throwing blades for agile assassins.</p>
+                <a href="dagger.html" class="card-btn">Open Daggers</a>
+            </div>
+
+            <!-- Spears & Polearms -->
+            <div class="weapon-card">
+                <div class="img-container"><img src="spear.png" alt="Spear"></div>
+                <h3>SPEARS & POLEARMS</h3>
+                <p>Pierce through multiple enemies at once with long-reach javelins, tridents, and royal lances.</p>
+                <a href="spears.html" class="card-btn">Open Spears</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
